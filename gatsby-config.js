@@ -1,3 +1,9 @@
+const dotenv = require('dotenv')
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.yourdomain.tld',
@@ -7,8 +13,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        accessToken: 'JYJUsIglggG0nvFAFK_ZZRfrKryoByORlTgYSX3bLEs',
-        spaceId: 'ftg31lu3nuto'
+        spaceId: 'ftg31lu3nuto',
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       }
     },
     'gatsby-plugin-postcss',
