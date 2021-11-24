@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: 'https://www.yourdomain.tld',
     title: 'Tiv'
   },
+  jsxRuntime: 'automatic',
   plugins: [
     {
       resolve: 'gatsby-source-contentful',
@@ -32,27 +33,10 @@ module.exports = {
       __key: 'images'
     },
     {
-      resolve: 'gatsby-plugin-prettier-eslint',
+      resolve: 'gatsby-plugin-alias-imports',
       options: {
-        initialScan: false,
-        prettier: {
-          patterns: [
-            // the pattern "**/*.{js,jsx,ts,tsx}" is not used because we will rely on `eslint --fix`
-            '**/*.{css,scss,less}',
-            '**/*.{json,json5}',
-            '**/*.{graphql}',
-            '**/*.{md,mdx}',
-            '**/*.{html}',
-            '**/*.{yaml,yml}'
-          ]
-        },
-        eslint: {
-          patterns: '**/*.{js,jsx,ts,tsx}',
-          customOptions: {
-            fix: true,
-            cache: true
-          }
-        }
+        alias: { '@': 'src' },
+        extensions: ['js']
       }
     },
     {
@@ -68,6 +52,10 @@ module.exports = {
           ],
           google2: [
             {
+              family: 'Exo',
+              axes: 'wght@900'
+            },
+            {
               family: 'Exo 2',
               axes: 'wght@300..900'
             },
@@ -79,6 +67,13 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-react-svg'
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /src\/components\/svg/
+        }
+      }
+    }
   ]
 }

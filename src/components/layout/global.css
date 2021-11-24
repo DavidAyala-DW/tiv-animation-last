@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-display text-white antialiased;
+    background-color: #161616;
+  }
+}
+
+@layer utilities {
+  .corners {
+            background: left top no-repeat url("@/images/corner-tl.svg"),
+      right top no-repeat url("@/images/corner-tr.svg"),
+      left bottom no-repeat url("@/images/corner-bl.svg"),
+      right bottom no-repeat url("@/images/corner-br.svg");
+  }
+
+  .both-span-full {
+    @apply col-span-full row-span-full;
+  }
+}

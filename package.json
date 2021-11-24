@@ -23,9 +23,9 @@
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^8.3.0",
     "gatsby": "^4.2.0",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^2.2.0",
     "gatsby-plugin-postcss": "^5.2.0",
-    "gatsby-plugin-prettier-eslint": "^1.0.6",
     "gatsby-plugin-react-helmet": "^5.2.0",
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sharp": "^4.2.0",
@@ -39,12 +39,14 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-string-replace": "^0.4.4",
     "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.27.1"
   }
