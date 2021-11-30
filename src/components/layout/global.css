@@ -4,8 +4,7 @@
 
 @layer base {
   body {
-    @apply font-display text-white antialiased;
-    background-color: #161616;
+    @apply font-display text-white bg-gray-dark antialiased;
   }
 
   .hex-dot-group .carousel__dot {
@@ -19,7 +18,40 @@
   }
 }
 
+@layer components {
+  .button {
+    @apply px-7 py-1.5 text-white text-base font-medium bg-orange border border-orange rounded-lg;
+  }
+
+  .button-sm {
+    @apply py-1 text-sm rounded;
+  }
+
+  .button-lg {
+    @apply px-10 py-2 text-lg;
+  }
+
+  .button-teal {
+    @apply bg-teal border-teal;
+  }
+
+  .button-outline {
+    @apply bg-opacity-0;
+  }
+
+  .button:hover,
+  .button:focus,
+  .button-outline:hover,
+  .button-outline:focus {
+    @apply bg-opacity-50;
+  }
+}
+
 @layer utilities {
+  .container {
+    @apply px-5;
+  }
+
   .corners {
     background: left top no-repeat url("@/images/corner-tl.svg"),
       right top no-repeat url("@/images/corner-tr.svg"),
@@ -29,5 +61,24 @@
 
   .both-span-full {
     @apply col-span-full row-span-full;
+  }
+
+  .text-stroke {
+    --stroke-width: 1px;
+    color: theme("colors.gray.dark");
+    text-shadow: var(--stroke-width) 0 0 var(--stroke-color),
+      calc(var(--stroke-width) * -1) 0 0 var(--stroke-color),
+      0 var(--stroke-width) 0 var(--stroke-color),
+      0 calc(var(--stroke-width) * -1) 0 var(--stroke-color);
+  }
+
+  .text-stroke-white {
+    @apply text-stroke;
+    --stroke-color: theme("colors.white");
+  }
+
+  .text-stroke-orange {
+    @apply text-stroke;
+    --stroke-color: theme("colors.orange");
   }
 }

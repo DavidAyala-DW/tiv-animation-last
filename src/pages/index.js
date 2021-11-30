@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import Layout from '@/components/layout'
 import { Helmet } from 'react-helmet'
 import Dot from '@/components/svg/dot.svg'
@@ -6,13 +5,11 @@ import FormBgBlur from '@/components/svg/wide-button-bg-blur.svg'
 import HexesLarge from '@/components/svg/hexes-large.svg'
 import { graphql } from 'gatsby'
 import reactStringReplace from 'react-string-replace'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import mockGraphic from '@/images/graphic-game-craft.svg'
 import ChevronLeft from '@/components/svg/chevron-left.svg'
 import ChevronRight from '@/components/svg/chevron-right.svg'
 import DemoCarouselBg from '@/components/svg/demo-carousel-bg.svg'
 import {
-  CarouselContext,
   CarouselProvider,
   Slider,
   Slide,
@@ -23,18 +20,17 @@ import {
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
 export default function IndexPage (props) {
-  const { data } = props
+  const { data, path } = props
   const heroData = data.contentfulLandingHero
   const heroTitle = reactStringReplace(
     heroData.title.title,
     /__(.*)__/g,
     (match) => <strong className="text-orange">{match}</strong>
   )
-  const cc = useContext(CarouselContext)
-  console.log(cc)
 
+  console.log(props)
   return (
-    <Layout>
+    <Layout currentPath={path}>
       <Helmet>
         <title>Home Page</title>
       </Helmet>
@@ -99,7 +95,7 @@ export default function IndexPage (props) {
             <h2 className="mb-2 text-heading2 font-bold uppercase">
               Pay Meets Play
             </h2>
-            <p className="text-heading5 font-bold text-teal uppercase tracking-widest">
+            <p className="text-heading5 font-bold text-teal uppercase tracking-[3px]">
               The Checking Account for Gamers
             </p>
           </header>
@@ -133,7 +129,7 @@ export default function IndexPage (props) {
               </div>
 
               <figcaption className="max-w-sm mt-16">
-                <Slider className="w-[2" classNameAnimation="none">
+                <Slider className="" classNameAnimation>
                   {[1, 1, 1].map((a, index) => (
                     <Slide index={index}>
                       <h3 className="mb-7 text-heading3 font-bold leading-tight">
