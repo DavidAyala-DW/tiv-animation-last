@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import { useState } from 'react'
 import { Divide as Burger } from 'hamburger-react'
 import MenuHex from '@/components/svg/menu-hex.svg'
 
+import tivLogo from '@/images/tiv-logo.svg'
 import menuBg from '@/images/menu-bg.svg'
 
 const mainMenuItems = [
@@ -24,35 +24,37 @@ export default function Header (props) {
 
   return (
     <>
-      <header className="fixed top-0 z-50 inset-x-0 pointer-events-none container flex items-center justify-between mx-auto py-6">
-        <Link to="/" className="pointer-events-auto">
-          <StaticImage src="../images/tiv-logo.svg" alt="Tiv" />
-        </Link>
-      </header>
+      <header className="fixed top-0 z-50 inset-x-0 pointer-events-none flex items-center justify-between py-6">
+        <div className="container mx-auto">
+          <Link to="/" className="pointer-events-auto">
+            <img src={tivLogo} alt="Tiv" />
+          </Link>
+        </div>
 
-      <button
-        type="button"
-        className="fixed top-6 right-[70px] z-50 flex items-center gap-4 text-black hover:text-gray-900 pointer-events-auto"
-        onClick={toggleMenu}
-      >
-        <span
-          className="text-[9px] font-bold uppercase text-white"
-          aria-live="polite"
+        <button
+          type="button"
+          className="absolute top-6 right-[70px] z-50 flex items-center gap-4 text-black hover:text-gray-900 pointer-events-auto"
+          onClick={toggleMenu}
         >
-          {isMenuOpen ? 'Close' : 'Menu'}
-        </span>
-        <span className="grid items-center justify-center" aria-hidden="true">
-          <MenuHex
-            className={classNames(
-              'both-span-full',
-              isMenuOpen && 'drop-shadow-lg'
-            )}
-          />
-          <span className="both-span-full flex justify-center text-orange transform scale-75">
-            <Burger color="currentColor" distance="sm" toggled={isMenuOpen} />
+          <span
+            className="text-[9px] font-bold uppercase text-white"
+            aria-live="polite"
+          >
+            {isMenuOpen ? 'Close' : 'Menu'}
           </span>
-        </span>
-      </button>
+          <span className="grid items-center justify-center" aria-hidden="true">
+            <MenuHex
+              className={classNames(
+                'both-span-full',
+                isMenuOpen && 'drop-shadow-xl'
+              )}
+            />
+            <span className="both-span-full flex justify-center text-orange transform scale-75">
+              <Burger color="currentColor" distance="sm" toggled={isMenuOpen} />
+            </span>
+          </span>
+        </button>
+      </header>
 
       <section
         className={classNames(
@@ -106,19 +108,30 @@ export default function Header (props) {
               ))}
             </nav>
 
-            <div className="flex justify-between text-white/40 pl-16 ml-2 pb-2">
+            <div className="flex justify-between text-white/40 pl-20 pb-2">
               <nav className="flex gap-4">
                 {mainMenuItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className="p-2 hover:text-white/80"
+                    className="py-2 hover:text-white/80"
                   >
                     {item.label}
                   </Link>
                 ))}
               </nav>
-              <nav>fsdsdf</nav>
+
+              <nav className="flex gap-4">
+                {mainMenuItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="py-2 hover:text-white/80"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
             </div>
           </div>
         </div>

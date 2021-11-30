@@ -49,7 +49,7 @@
 
 @layer utilities {
   .container {
-    @apply px-5;
+    @apply px-5 mx-auto;
   }
 
   .corners {

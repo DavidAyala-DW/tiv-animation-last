@@ -28,7 +28,6 @@ export default function IndexPage (props) {
     (match) => <strong className="text-orange">{match}</strong>
   )
 
-  console.log(props)
   return (
     <Layout currentPath={path}>
       <Helmet>
@@ -45,7 +44,7 @@ export default function IndexPage (props) {
               {heroData.showBetaAccessTag && (
                 <p className="flex items-center justify-center gap-2.5 mb-4 font-mono uppercase text-xs tracking-wider text-teal">
                   Beta Access{' '}
-                  <Dot className="text-teal-light drop-shadow-current-sm relative -top-px" />
+                  <Dot className="text-teal-light drop-shadow-current-sm relative" />
                 </p>
               )}
 
@@ -90,7 +89,7 @@ export default function IndexPage (props) {
           </ul>
         </section>
 
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-4xl mx-auto pt-36 pb-64">
           <header className="relative z-10 mb-24 text-center">
             <h2 className="mb-2 text-heading2 font-bold uppercase">
               Pay Meets Play
