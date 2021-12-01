@@ -79,6 +79,7 @@ module.exports = {
           include: /src\/components\/svg/
         }
       }
-    }
+    },
+    'gatsby-plugin-mdx'
   ]
 }
