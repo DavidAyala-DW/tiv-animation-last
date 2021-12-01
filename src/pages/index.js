@@ -2,10 +2,9 @@ import Layout from '@/components/layout'
 import { Helmet } from 'react-helmet'
 import Dot from '@/components/svg/dot.svg'
 import FormBgBlur from '@/components/svg/wide-button-bg-blur.svg'
-import HexesLarge from '@/components/svg/hexes-large.svg'
 import { graphql } from 'gatsby'
-import reactStringReplace from 'react-string-replace'
-import mockGraphic from '@/images/graphic-game-craft.svg'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import ChevronLeft from '@/components/svg/chevron-left.svg'
 import ChevronRight from '@/components/svg/chevron-right.svg'
 import DemoCarouselBg from '@/components/svg/demo-carousel-bg.svg'
@@ -18,15 +17,21 @@ import {
   DotGroup
 } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
+import ReactPlayer from 'react-player/lazy'
+
+import heroHexesLg from '@/images/hero-hexes-large.svg'
+import heroHexesMd from '@/images/hero-hexes-medium.svg'
+import heroHexesSm from '@/images/hero-hexes-small.svg'
+import featureHexFrame from '@/images/feature-hex-frame.svg'
+import featureHexFrameSm from '@/images/feature-hex-frame-small.svg'
+import featureGlow from '@/images/feature-glow.svg'
+import featureGlowSm from '@/images/feature-glow-small.svg'
 
 export default function IndexPage (props) {
   const { data, path } = props
   const heroData = data.contentfulLandingHero
-  const heroTitle = reactStringReplace(
-    heroData.title.title,
-    /__(.*)__/g,
-    (match) => <strong className="text-orange">{match}</strong>
-  )
+  const featuresData = data.contentfulLandingFeatureList.features
+  const slidesData = data.contentfulLandingCarousel.slides
 
   return (
     <Layout currentPath={path}>
@@ -35,21 +40,30 @@ export default function IndexPage (props) {
       </Helmet>
 
       <main>
-        <section className="grid">
-          <div className="both-span-full justify-self-center overflow-hidden">
-            <HexesLarge aria-hidden="true" />
+        <section className="grid py-12 md:py-0">
+          <div
+            className="both-span-full flex justify-center w-full overflow-hidden"
+            aria-hidden="true"
+          >
+            <img src={heroHexesSm} className="max-w-none md:hidden" />
+            <img
+              src={heroHexesMd}
+              className="max-w-none hidden md:inline lg:hidden"
+            />
+            <img src={heroHexesLg} className="max-w-none hidden lg:inline" />
           </div>
-          <div className="both-span-full self-center w-full flex flex-col items-center gap-7 -translate-y-24">
+
+          <div className="both-span-full self-center container w-full flex flex-col items-center gap-7 lg:-translate-y-1/4">
             <div className="text-center">
               {heroData.showBetaAccessTag && (
-                <p className="flex items-center justify-center gap-2.5 mb-4 font-mono uppercase text-xs tracking-wider text-teal">
+                <p className="flex items-center justify-center gap-2.5 mb-3 md:mb-4 uppercase font-bold text-xs tracking-[1px] text-teal">
                   Beta Access{' '}
                   <Dot className="text-teal-light drop-shadow-current-sm relative" />
                 </p>
               )}
 
-              <h1 className="max-w-xl font-display-alt font-black text-heading1 uppercase leading-none">
-                {heroTitle}
+              <h1 className="max-w-xl font-display-alt font-black text-heading1 lg:text-[56px] uppercase leading-none cms-strong-orange">
+                <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
               </h1>
             </div>
             <p className="max-w-lg font-medium text-lg text-white text-center text-opacity-50">
@@ -65,22 +79,66 @@ export default function IndexPage (props) {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto">
-          <h2 className="sr-only">Tiv features</h2>
+        <section className="container max-w-6xl md:-mt-24 pt-5">
+          <h2 className="text-heading5 text-center tracking-[8px] mr-[-8px] mb-4 md:sr-only">
+            Explore
+          </h2>
 
-          <ul className="grid gap-4">
-            {[1, 1, 1].map((a, index) => (
-              <li className="flex items-center gap-4 even:flex-row-reverse">
+          <div
+            className="block md:hidden w-[2px] h-[93px] mx-auto -mb-px bg-gray-900"
+            aria-hidden="true"
+          />
+
+          <ul className="grid gap-10 md:gap-4">
+            {featuresData.map((feature) => (
+              <li
+                key={feature.id}
+                className="flex flex-col md:flex-row items-center gap-8 md:gap-16 md:even:flex-row-reverse"
+              >
                 <figure className="contents">
-                  {/* <GatsbyImage src={} */}
-                  <img src={mockGraphic} />
-                  <figcaption className="max-w-md">
-                    <h3 className="text-heading3 font-bold">
-                      Game more. Earn more.
+                  <div className="relative grid items-center justify-center">
+                    <img
+                      className="absolute hidden md:inline"
+                      src={featureGlow}
+                      aria-hidden="true"
+                    />
+                    <img
+                      className="absolute md:hidden"
+                      src={featureGlowSm}
+                      aria-hidden="true"
+                    />
+                    <img
+                      src={featureHexFrame}
+                      className="both-span-full hidden md:inline"
+                      aria-hidden="true"
+                    />
+                    <img
+                      src={featureHexFrameSm}
+                      className="both-span-full mx-auto md:hidden"
+                      aria-hidden="true"
+                    />
+                    <div className="both-span-full z-10 flex justify-center">
+                      {feature.image.gatsbyImageData ? (
+                        <GatsbyImage
+                          src={feature.image.gatsbyImageData}
+                          alt={feature.image.description}
+                          // TODO: confirm this works
+                        />
+                      ) : (
+                        <img
+                          src={feature.image.file.url}
+                          alt={feature.image.description}
+                          className="w-1/2 md:w-3/5"
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <figcaption className="max-w-xs lg:max-w-md text-center md:text-left">
+                    <h3 className="mb-3 md:mb-4 text-heading3 font-bold leading-[1.2em] cms-strong-orange">
+                      <MDXRenderer>{feature.title.childMdx.body}</MDXRenderer>
                     </h3>
-                    <p className="text-xl text-white text-opacity-50">
-                      Rake in points by spending time doing what you already
-                      love. It really is that simple.
+                    <p className="lg:text-xl leading-snug text-white text-opacity-50">
+                      {feature.description.description}
                     </p>
                   </figcaption>
                 </figure>
@@ -94,33 +152,34 @@ export default function IndexPage (props) {
             <h2 className="mb-2 text-heading2 font-bold uppercase">
               Pay Meets Play
             </h2>
-            <p className="text-heading5 font-bold text-teal uppercase tracking-[3px]">
-              The Checking Account for Gamers
-            </p>
+            <p className="text-heading5">The Checking Account for Gamers</p>
           </header>
 
           <CarouselProvider
             naturalSlideWidth={290}
             naturalSlideHeight={585}
-            totalSlides={3}
+            totalSlides={slidesData.length}
             infinite
             isIntrinsicHeight
           >
             <figure className="flex justify-between">
               <div className="relative flex">
-                <div className="grid absolute top-0 inset-x-0 -translate-y-48">
+                <div
+                  className="grid absolute top-0 inset-x-0 -translate-y-48 pointer-events-none"
+                  aria-hidden="true"
+                >
                   <div className="both-span-full justify-self-center overflow-hidden">
-                    <DemoCarouselBg aria-hidden="true" />
+                    <DemoCarouselBg />
                   </div>
                 </div>
+
                 <Slider className="w-[290px]" classNameAnimation>
-                  {[1, 1, 1].map((a, index) => (
+                  {slidesData.map((slide, index) => (
                     <Slide index={index}>
-                      <img
+                      <ReactPlayer
                         width={290}
                         height={585}
-                        src="https://via.placeholder.com/290x585"
-                        alt={index}
+                        url={slide.video.file.url}
                       />
                     </Slide>
                   ))}
@@ -129,15 +188,13 @@ export default function IndexPage (props) {
 
               <figcaption className="max-w-sm mt-16">
                 <Slider className="" classNameAnimation>
-                  {[1, 1, 1].map((a, index) => (
+                  {slidesData.map((slide, index) => (
                     <Slide index={index}>
-                      <h3 className="mb-7 text-heading3 font-bold leading-tight">
-                        ({index}) Enjoy all the benefits of modern checking
+                      <h3 className="mb-7 text-heading3 font-bold leading-tight cms-strong-orange">
+                        <MDXRenderer>{slide.title.childMdx.body}</MDXRenderer>
                       </h3>
                       <p className="mb-10 text-white opacity-50">
-                        Easily manage your money using the Tiv mobile app. We’ll
-                        also insure your checking account with up to $250,000 in
-                        deposit insurance.
+                        {slide.description.description}
                       </p>
                     </Slide>
                   ))}
@@ -168,10 +225,53 @@ export const query = graphql`
         description
       }
       title {
-        title
+        childMdx {
+          body
+        }
       }
       showBetaAccessTag
       showWaitlistSignup
+    }
+
+    contentfulLandingFeatureList {
+      features {
+        image {
+          description
+          file {
+            url
+          }
+          gatsbyImageData
+        }
+        description {
+          description
+        }
+        id
+        title {
+          childMdx {
+            body
+          }
+        }
+      }
+    }
+
+    contentfulLandingCarousel {
+      slides {
+        description {
+          description
+        }
+        id
+        title {
+          childMdx {
+            body
+          }
+        }
+        video {
+          file {
+            url
+          }
+          description
+        }
+      }
     }
   }
 `

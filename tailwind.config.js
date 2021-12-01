@@ -3,10 +3,8 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      display: ['"Exo 2"', 'sans-serif'],
-      'display-alt': ['"Exo"', 'sans-serif'],
-      sans: ['"Open Sans"', 'sans-serif'],
-      mono: ['"Space Mono"', 'monospace']
+      display: ['"Exo 2"', 'sans-serif']
+      // 'display-alt': ['"Exo"', 'sans-serif'],
     },
 
     extend: {
@@ -30,12 +28,6 @@ module.exports = {
           '800': '#424242',
           '900': '#262626'
         }
-      },
-      fontSize: {
-        heading1: '56px',
-        heading2: '48px',
-        heading3: '33px',
-        heading5: '18px'
       },
       dropShadow: {
         'current-sm': '0 0 7px'

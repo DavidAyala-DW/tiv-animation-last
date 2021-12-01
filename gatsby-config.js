@@ -48,25 +48,10 @@ module.exports = {
       resolve: 'gatsby-plugin-webfonts',
       options: {
         fonts: {
-          google: [
-            {
-              family: 'Space Mono',
-              variants: ['700'],
-              text: 'BETA ACCESS'
-            }
-          ],
           google2: [
-            {
-              family: 'Exo',
-              axes: 'wght@900'
-            },
             {
               family: 'Exo 2',
               axes: 'wght@300..900'
-            },
-            {
-              family: 'Open Sans',
-              axes: 'wght@400'
             }
           ]
         }

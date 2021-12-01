@@ -7,6 +7,22 @@
     @apply font-display text-white bg-gray-dark antialiased;
   }
 
+  .text-heading1 {
+    @apply text-[34px] md:text-5xl font-black;
+  }
+
+  .text-heading2 {
+    @apply text-4xl md:text-[43px] lg:text-5xl;
+  }
+
+  .text-heading3 {
+    @apply text-[21px] lg:text-[33px];
+  }
+
+  .text-heading5 {
+    @apply text-xs lg:text-lg font-bold text-teal uppercase tracking-[3px];
+  }
+
   .hex-dot-group .carousel__dot {
     width: 12px;
     height: 12px;
@@ -20,7 +36,7 @@
 
 @layer components {
   .button {
-    @apply px-7 py-1.5 text-white text-base font-medium bg-orange border border-orange rounded-lg;
+    @apply px-7 py-1.5 text-white text-base font-medium bg-orange border border-orange rounded-lg whitespace-nowrap;
   }
 
   .button-sm {
@@ -49,7 +65,7 @@
 
 @layer utilities {
   .container {
-    @apply px-5 mx-auto;
+    @apply mx-auto md:px-12 px-6;
   }
 
   .corners {
@@ -80,5 +96,10 @@
   .text-stroke-orange {
     @apply text-stroke;
     --stroke-color: theme("colors.orange");
+  }
+
+  .cms-strong-orange strong {
+    @apply text-orange;
+    font-weight: inherit;
   }
 }
