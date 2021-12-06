@@ -5,19 +5,8 @@ import FormBgBlur from '@/components/svg/wide-button-bg-blur.svg'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import ChevronLeft from '@/components/svg/chevron-left.svg'
-import ChevronRight from '@/components/svg/chevron-right.svg'
-import DemoCarouselBg from '@/components/svg/demo-carousel-bg.svg'
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-  DotGroup
-} from 'pure-react-carousel'
-import 'pure-react-carousel/dist/react-carousel.es.css'
-import ReactPlayer from 'react-player/lazy'
+import { CarouselProvider } from 'pure-react-carousel'
+import DemoCarousel from '@/components/demo-carousel'
 
 import heroHexesLg from '@/images/hero-hexes-large.svg'
 import heroHexesMd from '@/images/hero-hexes-medium.svg'
@@ -31,7 +20,7 @@ export default function IndexPage (props) {
   const { data, path } = props
   const heroData = data.contentfulLandingHero
   const featuresData = data.contentfulLandingFeatureList.features
-  const slidesData = data.contentfulLandingCarousel.slides
+  const carouselData = data.contentfulLandingCarousel
 
   return (
     <Layout currentPath={path}>
@@ -150,67 +139,21 @@ export default function IndexPage (props) {
         <section className="max-w-4xl mx-auto pt-36 pb-64">
           <header className="relative z-10 mb-24 text-center">
             <h2 className="mb-2 text-heading2 font-bold uppercase">
-              Pay Meets Play
+              <MDXRenderer>{carouselData.title.childMdx.body}</MDXRenderer>
             </h2>
-            <p className="text-heading5">The Checking Account for Gamers</p>
+            <p className="text-heading5">{carouselData.subtitle}</p>
           </header>
 
           <CarouselProvider
             naturalSlideWidth={290}
             naturalSlideHeight={585}
-            totalSlides={slidesData.length}
+            totalSlides={carouselData.slides.length}
             infinite
             isIntrinsicHeight
+            touchEnabled={false}
+            dragEnabled={false}
           >
-            <figure className="flex justify-between">
-              <div className="relative flex">
-                <div
-                  className="grid absolute top-0 inset-x-0 -translate-y-48 pointer-events-none"
-                  aria-hidden="true"
-                >
-                  <div className="both-span-full justify-self-center overflow-hidden">
-                    <DemoCarouselBg />
-                  </div>
-                </div>
-
-                <Slider className="w-[290px]" classNameAnimation>
-                  {slidesData.map((slide, index) => (
-                    <Slide index={index}>
-                      <ReactPlayer
-                        width={290}
-                        height={585}
-                        url={slide.video.file.url}
-                      />
-                    </Slide>
-                  ))}
-                </Slider>
-              </div>
-
-              <figcaption className="max-w-sm mt-16">
-                <Slider className="" classNameAnimation>
-                  {slidesData.map((slide, index) => (
-                    <Slide index={index}>
-                      <h3 className="mb-7 text-heading3 font-bold leading-tight cms-strong-orange">
-                        <MDXRenderer>{slide.title.childMdx.body}</MDXRenderer>
-                      </h3>
-                      <p className="mb-10 text-white opacity-50">
-                        {slide.description.description}
-                      </p>
-                    </Slide>
-                  ))}
-                </Slider>
-
-                <div className="flex items-center gap-9">
-                  <ButtonBack className="px-6 py-5 bg-gray-900 rounded">
-                    <ChevronLeft />
-                  </ButtonBack>
-                  <DotGroup className="hex-dot-group flex gap-5" />
-                  <ButtonNext className="px-6 py-5 bg-gray-900 rounded">
-                    <ChevronRight />
-                  </ButtonNext>
-                </div>
-              </figcaption>
-            </figure>
+            <DemoCarousel slidesData={carouselData.slides} />
           </CarouselProvider>
         </section>
       </main>
@@ -255,6 +198,12 @@ export const query = graphql`
     }
 
     contentfulLandingCarousel {
+      title {
+        childMdx {
+          body
+        }
+      }
+      subtitle
       slides {
         description {
           description
