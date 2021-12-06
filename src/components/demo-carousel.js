@@ -33,8 +33,8 @@ export default function DemoCarousel (props) {
   }, [carouselContext])
 
   return (
-    <figure className="flex justify-between">
-      <div className="relative flex">
+    <figure className="flex flex-col md:flex-row md:justify-between items-center gap-12">
+      <div className="relative flex -my-20 md:my-0 scale-75 md:scale-90 lg:scale-100">
         <div
           className="grid absolute top-0 inset-x-0 -translate-y-48 pointer-events-none"
           aria-hidden="true"
@@ -72,10 +72,14 @@ export default function DemoCarousel (props) {
         </div>
       </div>
 
-      <figcaption className="max-w-sm mt-16">
-        <Slider classNameAnimation>
+      <figcaption className="z-10 flex md:block flex-col-reverse items-center gap-5 max-w-xs md:max-w-sm mb-10 lg:mt-16">
+        <Slider className="w-full" classNameAnimation>
           {slidesData.map((slide, index) => (
-            <Slide key={slide.id} index={index}>
+            <Slide
+              key={slide.id}
+              index={index}
+              className="text-center md:text-left"
+            >
               <h3 className="mb-7 text-heading3 font-bold leading-tight cms-strong-orange">
                 <MDXRenderer>{slide.title.childMdx.body}</MDXRenderer>
               </h3>
@@ -86,7 +90,7 @@ export default function DemoCarousel (props) {
           ))}
         </Slider>
 
-        <div className="flex items-center gap-9">
+        <div className="flex items-center gap-9 scale-75 md:scale-90 lg:scale-100 origin-top md:origin-top-left">
           <ButtonBack className="px-6 py-5 bg-gray-900 rounded">
             <ChevronLeft />
           </ButtonBack>

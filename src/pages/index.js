@@ -19,7 +19,7 @@ import featureGlowSm from '@/images/feature-glow-small.svg'
 export default function IndexPage (props) {
   const { data, path } = props
   const heroData = data.contentfulLandingHero
-  const featuresData = data.contentfulLandingFeatureList.features
+  const featuresData = data.contentfulLandingFeatureList
   const carouselData = data.contentfulLandingCarousel
 
   return (
@@ -70,7 +70,7 @@ export default function IndexPage (props) {
 
         <section className="container max-w-6xl md:-mt-24 pt-5">
           <h2 className="text-heading5 text-center tracking-[8px] mr-[-8px] mb-4 md:sr-only">
-            Explore
+            {featuresData.title}
           </h2>
 
           <div
@@ -79,7 +79,7 @@ export default function IndexPage (props) {
           />
 
           <ul className="grid gap-10 md:gap-4">
-            {featuresData.map((feature) => (
+            {featuresData.features.map((feature) => (
               <li
                 key={feature.id}
                 className="flex flex-col md:flex-row items-center gap-8 md:gap-16 md:even:flex-row-reverse"
@@ -136,9 +136,9 @@ export default function IndexPage (props) {
           </ul>
         </section>
 
-        <section className="max-w-4xl mx-auto pt-36 pb-64">
-          <header className="relative z-10 mb-24 text-center">
-            <h2 className="mb-2 text-heading2 font-bold uppercase">
+        <section className="container md:max-w-3xl lg:max-w-4xl pt-36 pb-64">
+          <header className="relative z-10 mb-16 lg:mb-24 text-center">
+            <h2 className="mb-2 text-heading2 font-bold uppercase cms-strong-orange">
               <MDXRenderer>{carouselData.title.childMdx.body}</MDXRenderer>
             </h2>
             <p className="text-heading5">{carouselData.subtitle}</p>
@@ -177,6 +177,7 @@ export const query = graphql`
     }
 
     contentfulLandingFeatureList {
+      title
       features {
         image {
           description

@@ -99,7 +99,7 @@
   }
 
   .cms-strong-orange strong {
-    @apply text-orange;
+    @apply text-orange whitespace-nowrap;
     font-weight: inherit;
   }
 }
