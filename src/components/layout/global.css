@@ -75,6 +75,10 @@
       right bottom no-repeat url("@/images/corner-br.svg");
   }
 
+  .corners-orange {
+    filter: hue-rotate(185deg) saturate(1.5);
+  }
+
   .both-span-full {
     @apply col-span-full row-span-full;
   }

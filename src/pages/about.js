@@ -20,6 +20,7 @@ export default function AboutPage (props) {
   const heroData = data.contentfulAboutHero
   const teamData = data.contentfulAboutTeam
   const pressData = data.contentfulAboutPress
+  const jobsData = data.contentfulAboutJobs
 
   return (
     <Layout currentPath={path}>
@@ -87,20 +88,20 @@ export default function AboutPage (props) {
           </ul>
         </section>
 
-        <section className="container flex items-center max-w-7xl py-10">
-          <header className="mb-16">
+        <section className="container flex max-w-7xl py-12">
+          <header className="min-w-[280px] mt-32">
             <h2>
               <span className="block text-heading5">{pressData.eyebrow}</span>
-              <span className="text-heading2 font-bold uppercase cms-strong-orange">
+              <span className="text-heading2 leading-[1.2em] font-bold uppercase cms-strong-orange">
                 <MDXRenderer>{pressData.title.childMdx.body}</MDXRenderer>
               </span>
             </h2>
           </header>
 
-          <div>
+          <div className="flex-shrink">
             <CarouselProvider
               naturalSlideWidth={282}
-              naturalSlideHeight={499}
+              naturalSlideHeight={500}
               totalSlides={pressData.articles.length}
               infinite
               isIntrinsicHeight
@@ -110,19 +111,19 @@ export default function AboutPage (props) {
               <Slider>
                 {pressData.articles.map((article, index) => (
                   <Slide
-                    key={article.id + index}
+                    key={article.id}
                     index={index}
                     className="text-center md:text-left"
                   >
-                    <article className="mr-5 p-5 border border-gray border-opacity-20">
+                    <article className="h-full ml-5 p-5 flex flex-col border border-gray border-opacity-20">
                       <GatsbyImage
                         image={article.image.gatsbyImageData}
                         alt={article.image.description}
-                        className="mb-5 rounded-lg"
+                        className="mb-3 rounded-lg"
                       />
-                      <div className="p-2.5">
-                        <div>
-                          <h3 className="mb-7 text-heading3 text-2xl font-bold leading-tight">
+                      <div className="flex-grow flex flex-col p-3">
+                        <div className="flex gap-4 mb-7">
+                          <h3 className="text-heading3 text-2xl font-bold leading-tight">
                             {article.title}
                           </h3>
                           {article.icon &&
@@ -136,11 +137,11 @@ export default function AboutPage (props) {
                               <img
                                 src={article.icon.file.url}
                                 alt={article.icon.description}
-                                className=""
+                                className="-translate-y-2"
                               />
                             ))}
                         </div>
-                        <p className="mb-10 text-white/50">
+                        <p className="mb-8 text-white/50">
                           <MDXRenderer>
                             {article.description.childMdx.body}
                           </MDXRenderer>
@@ -149,7 +150,7 @@ export default function AboutPage (props) {
                           <a
                             href={article.url}
                             target="_blank"
-                            className="text-orange"
+                            className="inline-block mt-auto text-orange underline"
                           >
                             Read More
                           </a>
@@ -160,16 +161,73 @@ export default function AboutPage (props) {
                 ))}
               </Slider>
 
-              <div className="flex gap-3">
-                <ButtonBack>
+              <div className="flex justify-end gap-2 mt-9 scale-75 md:scale-90 lg:scale-100 origin-top md:origin-top-left">
+                <ButtonBack className="px-6 py-5 bg-gray-900 rounded">
                   <ChevronLeft />
                 </ButtonBack>
-                <ButtonNext>
+                <ButtonNext className="px-6 py-5 bg-gray-900 rounded">
                   <ChevronRight />
                 </ButtonNext>
               </div>
             </CarouselProvider>
           </div>
+        </section>
+
+        <section className="container max-w-5xl pt-4 pb-36">
+          <h2 className="mb-16 text-heading2 text-center font-bold uppercase cms-strong-orange">
+            <MDXRenderer>{jobsData.title.childMdx.body}</MDXRenderer>
+          </h2>
+          <ul className="grid grid-cols-3 gap-x-5 gap-y-4">
+            {jobsData.jobs.map((job) => (
+              <li key={job.id}>
+                <article className="relative h-full p-7 flex flex-col gap-5 border border-gray border-opacity-20 rounded-2xl">
+                  <div
+                    className="corners corners-orange absolute -inset-px pointer-events-none"
+                    aria-hidden="true"
+                  />
+                  <h3 className="text-heading3 text-2xl font-bold leading-tight">
+                    {job.title}
+                  </h3>
+                  <section>
+                    <h4 className="mb-1 text-xs">Description</h4>
+                    <p className="text-white/50">
+                      <MDXRenderer>{job.description.childMdx.body}</MDXRenderer>
+                    </p>
+                  </section>
+                  <section>
+                    <h4 className="mb-1 text-xs">Salary</h4>
+                    <p className="text-orange text-2xl">
+                      <strong>{job.salary}</strong> / year
+                    </p>
+                  </section>
+                  <section>
+                    <h4 className="mb-1 text-xs">Description 2</h4>
+                    <p className="text-xs text-white/50">
+                      <MDXRenderer>
+                        {job.description2.childMdx.body}
+                      </MDXRenderer>
+                    </p>
+                  </section>
+                  <div className="mt-auto pt-3 flex justify-between gap-4">
+                    <a
+                      href={job.applyUrl}
+                      target="_blank"
+                      className="button button-sm"
+                    >
+                      Apply
+                    </a>
+                    <a
+                      href={job.learnMoreUrl}
+                      target="_blank"
+                      className="text-white/50 underline"
+                    >
+                      Learn More
+                    </a>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
     </Layout>
