@@ -62,7 +62,7 @@ export default function Layout (props) {
   return (
     <>
       <Header data={data.contentfulMenu} currentPath={currentPath} />
-      <div>{children}</div>
+      <div className="min-h-screen">{children}</div>
       <Footer data={data.contentfulFooter} />
     </>
   )

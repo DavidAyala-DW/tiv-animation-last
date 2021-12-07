@@ -6,7 +6,7 @@ dotenv.config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
+    siteUrl: 'https://www.tiv.co',
     title: 'Tiv'
   },
   jsxRuntime: 'automatic',
@@ -27,7 +27,10 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: { defaultQuality: 90 }
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',

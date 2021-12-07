@@ -83,7 +83,7 @@ export default function DemoCarousel (props) {
               <h3 className="mb-7 text-heading3 font-bold leading-tight cms-strong-orange">
                 <MDXRenderer>{slide.title.childMdx.body}</MDXRenderer>
               </h3>
-              <p className="mb-10 text-white opacity-50">
+              <p className="mb-10 text-white/50">
                 {slide.description.description}
               </p>
             </Slide>

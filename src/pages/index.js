@@ -184,7 +184,7 @@ export const query = graphql`
           file {
             url
           }
-          gatsbyImageData
+          gatsbyImageData(quality: 100)
         }
         description {
           description
