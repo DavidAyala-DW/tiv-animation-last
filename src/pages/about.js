@@ -32,10 +32,10 @@ export default function AboutPage (props) {
           </div>
 
           <div className="z-10 container w-full flex flex-col items-center justify-center gap-7 md:min-h-[675px]">
-            <h1 className="max-w-xl font-display-alt font-black text-heading1 uppercase text-center leading-none cms-strong-orange">
+            <h1 className="max-w-xl font-black text-heading1 uppercase text-center leading-none cms-strong-orange">
               <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
             </h1>
-            <p className="max-w-4xl font-medium text-lg text-white text-center text-opacity-50">
+            <p className="max-w-4xl font-medium text-lg text-white/50 text-center">
               {heroData.description.description}
             </p>
           </div>

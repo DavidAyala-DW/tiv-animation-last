@@ -7,7 +7,7 @@ export default function Nav (props) {
   return (
     <nav className={classNames('flex', className)}>
       {links.map((link) =>
-        link.url.startsWith('http') ? (
+        link.url.startsWith('http') || link.url.startsWith('mailto:') ? (
           <a
             key={link.url}
             href={link.url}
