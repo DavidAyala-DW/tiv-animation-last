@@ -15,8 +15,9 @@ import featureHexFrame from '@/images/feature-hex-frame.svg'
 import featureHexFrameSm from '@/images/feature-hex-frame-small.svg'
 import featureGlow from '@/images/feature-glow.svg'
 import featureGlowSm from '@/images/feature-glow-small.svg'
+import WaitlistButton from '../components/waitlist-button'
 
-export default function IndexPage (props) {
+export default function IndexPage(props) {
   const { data, path } = props
   const heroData = data.contentfulLandingHero
   const featuresData = data.contentfulLandingFeatureList
@@ -45,7 +46,7 @@ export default function IndexPage (props) {
           <div className="both-span-full self-center container w-full flex flex-col items-center gap-7 lg:-translate-y-1/4">
             <div className="text-center">
               {heroData.showBetaAccessTag && (
-                <p className="flex items-center justify-center gap-2.5 mb-3 md:mb-4 uppercase font-bold text-xs tracking-[1px] text-teal">
+                <p className="flex items-center justify-center gap-2.5 mb-3 md:mb-4 uppercase font-bold text-xs tracking-[1px] leading-tight text-teal">
                   Beta Access{' '}
                   <Dot className="text-teal-light drop-shadow-current-sm relative" />
                 </p>
@@ -59,11 +60,16 @@ export default function IndexPage (props) {
               {heroData.description.description}
             </p>
 
-            <div className="relative w-full flex flex-col items-center mt-6">
-              <div className="w-[345px] h-[150px] corners">
-                [form goes here]
+            <div className="relative z-0 w-full flex flex-col items-center mt-6">
+              <div className="corners p-5">
+                <WaitlistButton className="button button-outline button-lg min-w-[240px] py-3 pb-3.5">
+                  {heroData.joinButtonLabel}
+                </WaitlistButton>
               </div>
-              <FormBgBlur className="absolute -bottom-48 left-0 right-0 mx-auto" />
+              <FormBgBlur
+                className="absolute -bottom-48 left-0 right-0 z-[-1] mx-auto"
+                aria-hidden="true"
+              />
             </div>
           </div>
         </section>
@@ -174,6 +180,7 @@ export const query = graphql`
       }
       showBetaAccessTag
       showWaitlistSignup
+      joinButtonLabel
     }
 
     contentfulLandingFeatureList {
