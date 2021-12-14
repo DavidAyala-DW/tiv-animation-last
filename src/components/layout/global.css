@@ -7,6 +7,10 @@
     @apply font-display text-white bg-gray-dark antialiased;
   }
 
+  * {
+    @apply focus-visible:outline-white;
+  }
+
   .text-heading1 {
     @apply text-[34px] md:text-5xl font-black;
   }
@@ -30,7 +34,7 @@
   .hex-dot-group .carousel__dot {
     width: 12px;
     height: 12px;
-    background: center / contain no-repeat url("@/images/hex-filled.svg");
+    background: center / contain no-repeat url('@/images/hex-filled.svg');
 
     &:not(.carousel__dot--selected) {
       filter: grayscale(1) opacity(0.3) brightness(1.2);
@@ -40,7 +44,7 @@
 
 @layer components {
   .button {
-    @apply px-7 py-1.5 text-white text-base font-medium bg-orange border border-orange rounded-lg whitespace-nowrap;
+    @apply px-7 py-1.5 text-white text-base text-center font-medium bg-orange hover:bg-opacity-50 disabled:bg-opacity-100 border border-orange rounded-lg whitespace-nowrap disabled:opacity-50;
   }
 
   .button-sm {
@@ -56,15 +60,15 @@
   }
 
   .button-outline {
-    @apply bg-opacity-0;
+    @apply bg-opacity-0 disabled:bg-opacity-0;
   }
 
-  .button:hover,
+  /* .button:hover,
   .button:focus,
   .button-outline:hover,
   .button-outline:focus {
     @apply bg-opacity-50;
-  }
+  } */
 }
 
 @layer utilities {
@@ -74,10 +78,10 @@
 
   @variants responsive {
     .corners {
-      background: left top no-repeat url("@/images/corner-tl.svg"),
-        right top no-repeat url("@/images/corner-tr.svg"),
-        left bottom no-repeat url("@/images/corner-bl.svg"),
-        right bottom no-repeat url("@/images/corner-br.svg");
+      background: left top no-repeat url('@/images/corner-tl.svg'),
+        right top no-repeat url('@/images/corner-tr.svg'),
+        left bottom no-repeat url('@/images/corner-bl.svg'),
+        right bottom no-repeat url('@/images/corner-br.svg');
     }
 
     .corners-orange {
@@ -95,7 +99,7 @@
 
   .text-stroke {
     --stroke-width: 1px;
-    color: theme("colors.gray.dark");
+    color: theme('colors.gray.dark');
     text-shadow: var(--stroke-width) 0 0 var(--stroke-color),
       calc(var(--stroke-width) * -1) 0 0 var(--stroke-color),
       0 var(--stroke-width) 0 var(--stroke-color),
@@ -104,12 +108,12 @@
 
   .text-stroke-white {
     @apply text-stroke;
-    --stroke-color: theme("colors.white");
+    --stroke-color: theme('colors.white');
   }
 
   .text-stroke-orange {
     @apply text-stroke;
-    --stroke-color: theme("colors.orange");
+    --stroke-color: theme('colors.orange');
   }
 
   .cms-strong-orange strong {
