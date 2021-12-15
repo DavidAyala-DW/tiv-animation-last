@@ -151,8 +151,8 @@ export default function IndexPage(props) {
           </header>
 
           <CarouselProvider
-            naturalSlideWidth={290}
-            naturalSlideHeight={585}
+            naturalSlideWidth={258}
+            naturalSlideHeight={558}
             totalSlides={carouselData.slides.length}
             infinite
             isIntrinsicHeight

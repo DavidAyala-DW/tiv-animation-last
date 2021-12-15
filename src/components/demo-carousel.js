@@ -45,7 +45,7 @@ export default function DemoCarousel(props) {
 
         <div className="grid grid-cols-1 w-[288px]">
           <Slider
-            className="both-span-full top-[13px] left-[15px]"
+            className="w-[260px] both-span-full top-[13px] left-[15px]"
             classNameAnimation
           >
             {slidesData.map((slide, index) => (
