@@ -9,7 +9,7 @@ import JobCarousel from '@/components/job-carousel'
 
 import heroBg from '@/images/about-hero-bg.svg'
 
-export default function AboutPage (props) {
+export default function AboutPage(props) {
   const { data, path } = props
   const heroData = data.contentfulAboutHero
   const teamData = data.contentfulAboutTeam
@@ -120,7 +120,7 @@ export default function AboutPage (props) {
 }
 
 export const query = graphql`
-  query AboutQuery {
+  query AboutPageQuery {
     contentfulAboutHero {
       description {
         description

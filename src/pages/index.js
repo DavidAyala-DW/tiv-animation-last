@@ -168,7 +168,7 @@ export default function IndexPage(props) {
 }
 
 export const query = graphql`
-  query LandingQuery {
+  query LandingPageQuery {
     contentfulLandingHero {
       description {
         description

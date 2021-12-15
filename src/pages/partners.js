@@ -8,7 +8,7 @@ import invader from '@/images/invader.svg'
 import shootInvader from '@/images/shoot-invader.svg'
 import presentInHexes from '@/images/present-in-hexes.svg'
 
-export default function PartnersPage (props) {
+export default function PartnersPage(props) {
   const { data, path } = props
   const heroData = data.contentfulPartnersHero
   const partnersData = data.contentfulPartnersPartnerList
@@ -88,7 +88,7 @@ export default function PartnersPage (props) {
 }
 
 export const query = graphql`
-  query PartnersQuery {
+  query PartnersPageQuery {
     contentfulPartnersHero {
       title {
         childMdx {
