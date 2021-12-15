@@ -31,7 +31,7 @@ export default function Header(props) {
 
           <button
             type="button"
-            className="absolute top-2 md:top-4 lg:top-6 right-3 md:right-[70px] z-50 flex items-center gap-4 text-black hover:text-gray-900 pointer-events-auto scale-75 md:scale-100 focus-within:outline-white"
+            className="absolute top-2 md:top-4 lg:top-6 right-3 md:right-[70px] z-50 flex items-center gap-4 text-black hover:text-gray-900 pointer-events-auto scale-75 md:scale-100"
             onClick={toggleMenu}
           >
             <span

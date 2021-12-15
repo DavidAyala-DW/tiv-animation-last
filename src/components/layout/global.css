@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply font-display text-white bg-gray-dark antialiased;
-  }
-
   * {
     @apply focus-visible:outline-white;
+  }
+
+  body {
+    @apply font-display text-white bg-gray-dark antialiased;
   }
 
   .text-heading1 {
@@ -62,13 +62,6 @@
   .button-outline {
     @apply bg-opacity-0 disabled:bg-opacity-0;
   }
-
-  /* .button:hover,
-  .button:focus,
-  .button-outline:hover,
-  .button-outline:focus {
-    @apply bg-opacity-50;
-  } */
 }
 
 @layer utilities {
