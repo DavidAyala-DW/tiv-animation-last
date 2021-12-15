@@ -62,11 +62,12 @@ export default function Header(props) {
           </button>
         </header>
 
-        <section
+        <div
           className={classNames(
             'fixed inset-0 z-40 h-screen flex bg-gray-dark transition-opacity',
             !isMenuOpen && 'opacity-0 pointer-events-none'
           )}
+          role="dialog"
           aria-hidden={isMenuOpen ? 'false' : 'true'}
         >
           <img
@@ -110,7 +111,10 @@ export default function Header(props) {
                 <p className="max-w-xs text-white/50">
                   {data.joinDescription.joinDescription}
                 </p>
-                <WaitlistButton className="button button-outline button-lg min-w-[240px] mt-7">
+                <WaitlistButton
+                  className="button button-outline button-lg min-w-[240px] mt-7"
+                  onClick={toggleMenu}
+                >
                   {data.joinButtonLabel}
                 </WaitlistButton>
               </div>
@@ -124,7 +128,7 @@ export default function Header(props) {
               <SocialNav links={data.socialNav.links} className="gap-8" />
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </FocusOn>
   )
