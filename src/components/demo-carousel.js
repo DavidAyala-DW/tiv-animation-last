@@ -1,12 +1,11 @@
-import { useState, useEffect, useContext } from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+import { useState, useEffect, useContext, useRef } from 'react'
 import {
   Slide,
   Slider,
   DotGroup,
   ButtonBack,
   ButtonNext,
-  CarouselContext
+  CarouselContext,
 } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 import ReactPlayer from 'react-player/lazy'
@@ -17,7 +16,7 @@ import ChevronRight from '@/components/svg/chevron-right.svg'
 import demoCarouselBg from '@/images/demo-carousel-bg.svg'
 import phoneFrame from '@/images/phone-frame.png'
 
-export default function DemoCarousel (props) {
+export default function DemoCarousel(props) {
   const { slidesData } = props
   const carouselContext = useContext(CarouselContext)
   const [currentSlide, setCurrentSlide] = useState(
@@ -25,7 +24,7 @@ export default function DemoCarousel (props) {
   )
 
   useEffect(() => {
-    function onChange () {
+    function onChange() {
       setCurrentSlide(carouselContext.state.currentSlide)
     }
     carouselContext.subscribe(onChange)
@@ -57,8 +56,9 @@ export default function DemoCarousel (props) {
                   url={slide.video.file.url}
                   playing={index === currentSlide}
                   loop
+                  muted={true}
                   playsinline
-                  className="rounded-xl overflow-hidden z-0"
+                  className="rounded-xl overflow-hidden z-0 bg-[#181618]"
                 />
               </Slide>
             ))}
