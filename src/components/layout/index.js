@@ -14,6 +14,7 @@ const headerFooterQuery = graphql`
         }
       }
       secondaryNavs {
+        id
         links {
           label
           url
@@ -55,7 +56,7 @@ const headerFooterQuery = graphql`
   }
 `
 
-export default function Layout (props) {
+export default function Layout(props) {
   const { currentPath, children } = props
   const data = useStaticQuery(headerFooterQuery)
 

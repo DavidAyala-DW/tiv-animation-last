@@ -122,7 +122,7 @@ export default function Header(props) {
 
             <div className="self-center flex flex-wrap justify-between gap-x-16 lg:gap-x-32 text-white/40 pb-2">
               {data.secondaryNavs.map((nav) => (
-                <Nav links={nav.links} className="gap-8" />
+                <Nav key={nav.id} links={nav.links} className="gap-8" />
               ))}
 
               <SocialNav links={data.socialNav.links} className="gap-8" />
