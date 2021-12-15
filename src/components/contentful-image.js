@@ -1,6 +1,6 @@
 import { GatsbyImage } from 'gatsby-plugin-image'
 
-export default function ContentfulImage (props) {
+export default function ContentfulImage(props) {
   const { image, className } = props
 
   return image.gatsbyImageData ? (
