@@ -61,11 +61,11 @@ export default function AboutPage(props) {
               >
                 <figure>
                   <div className="p-1 corners">
-                    <div className="p-[9%] border-2 border-gray border-opacity-20 rounded-full overflow-hidden">
+                    <div className="p-[9%] border-2 border-gray border-opacity-20 rounded-full">
                       <GatsbyImage
                         image={teamMember.image.gatsbyImageData}
                         alt={teamMember.image.description}
-                        className="rounded-full"
+                        imgClassName="rounded-full"
                       />
                     </div>
                   </div>
