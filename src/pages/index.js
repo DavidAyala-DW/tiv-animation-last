@@ -122,9 +122,9 @@ export default function IndexPage(props) {
             {featuresData.features.map((feature) => (
               <li
                 key={feature.id}
-                className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:gap-12 md:even:flex-row-reverse"
+                className="flex flex-col md:flex-row items-center md:gap-12 md:even:flex-row-reverse"
               >
-                <figure className="contents">
+                <figure className="contents space-y-8 md:space-y-0">
                   <div className="relative grid items-center justify-center">
                     <img
                       className="absolute hidden md:inline"
