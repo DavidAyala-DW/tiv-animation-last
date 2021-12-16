@@ -31,7 +31,7 @@ export default function AboutPage(props) {
             <img src={heroBg} className="max-w-none scale-[60%] md:scale-100" />
           </div>
 
-          <div className="z-10 container w-full flex flex-col items-center justify-center gap-7 md:min-h-[675px]">
+          <div className="z-10 container w-full flex flex-col items-center justify-center space-y-7 md:min-h-[675px]">
             <h1 className="max-w-xl font-black text-heading1 uppercase text-center leading-none cms-strong-orange">
               <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
             </h1>

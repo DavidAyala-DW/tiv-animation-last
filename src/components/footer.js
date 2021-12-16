@@ -4,13 +4,13 @@ import SocialNav from '@/components/social-nav'
 
 import tivLogo from '@/images/tiv-logo.svg'
 
-export default function Footer (props) {
+export default function Footer(props) {
   const { data } = props
 
   return (
     <footer className="relative bg-gray-dark text-white/50">
       <section className="py-4 lg:py-16 mb-1 border-t border-gray-800/80">
-        <div className="container flex flex-col lg:grid grid-cols-3 justify-between items-center gap-4 lg:gap-10">
+        <div className="container flex flex-col lg:grid grid-cols-3 justify-between items-center space-y-4 space-y-reverse lg:space-y-0 lg:gap-x-10">
           <Link to="/" className="justify-self-center">
             <img
               src={tivLogo}
@@ -22,20 +22,20 @@ export default function Footer (props) {
           </Link>
           <Nav
             links={data.primaryNav.links}
-            className="order-first gap-5 text-lg"
+            className="order-first space-x-5 text-lg"
           />
           <SocialNav
             links={data.socialNav.links}
-            className="justify-self-end gap-5 text-lg"
+            className="justify-self-end !mt-4 lg:!mt-0 space-x-5 text-lg"
           />
         </div>
       </section>
 
       <section className="pt-4 pb-7 md:py-2 border-t border-gray-800/80">
-        <div className="container flex flex-col md:grid grid-cols-3 items-center gap-4">
+        <div className="container flex flex-col md:grid grid-cols-3 items-center space-y-4 md:space-y-0 md:gap-x-10">
           <Nav
             links={data.secondaryNav.links}
-            className="md:col-start-3 lg:col-start-2 lg:justify-self-center md:order-last gap-6 md:gap-12 text-[15px]"
+            className="md:col-start-3 lg:col-start-2 lg:justify-self-center md:order-last space-x-6 md:space-x-12 text-[15px]"
           />
           <p className="text-[13px]">{data.legalText}</p>
         </div>

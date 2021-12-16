@@ -77,12 +77,12 @@ export default function IndexPage(props) {
             </div>
           </div>
 
-          <div className="both-span-full self-center container w-full flex flex-col items-center gap-7 lg:-translate-y-1/4">
+          <div className="both-span-full self-center container w-full flex flex-col items-center space-y-7 lg:-translate-y-1/4">
             <div className="text-center">
               {heroData.showBetaAccessTag && (
-                <p className="flex items-center justify-center gap-2.5 mb-3 md:mb-4 uppercase font-bold text-xs tracking-[1px] leading-tight text-teal">
+                <p className="flex items-center justify-center mb-3 md:mb-4 uppercase font-bold text-xs tracking-[1px] leading-tight text-teal">
                   Beta Access{' '}
-                  <Dot className="text-teal-light drop-shadow-current-sm relative" />
+                  <Dot className="ml-2.5 text-teal-light drop-shadow-current-sm relative" />
                 </p>
               )}
 
@@ -118,11 +118,11 @@ export default function IndexPage(props) {
             aria-hidden="true"
           />
 
-          <ul className="grid gap-10 md:gap-4">
+          <ul className="grid space-y-10 md:space-y-4">
             {featuresData.features.map((feature) => (
               <li
                 key={feature.id}
-                className="flex flex-col md:flex-row items-center gap-8 md:gap-16 md:even:flex-row-reverse"
+                className="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:gap-12 md:even:flex-row-reverse"
               >
                 <figure className="contents">
                   <div className="relative grid items-center justify-center">

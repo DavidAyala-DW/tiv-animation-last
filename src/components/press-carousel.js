@@ -41,7 +41,7 @@ export default function PressCarousel(props) {
           ))}
         </Slider>
 
-        <div className="flex justify-center sm:justify-start lg:justify-end gap-2 mt-9 sm:pl-5">
+        <div className="flex justify-center sm:justify-start lg:justify-end space-x-2 mt-9 sm:pl-5">
           <ButtonBack className="px-6 py-5 bg-gray-900 rounded">
             <ChevronLeft />
           </ButtonBack>

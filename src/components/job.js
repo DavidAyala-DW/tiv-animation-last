@@ -1,13 +1,13 @@
 import classNames from 'classnames'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
-export default function Job (props) {
+export default function Job(props) {
   const { job, className } = props
 
   return (
     <article
       className={classNames(
-        'relative h-full p-5 lg:p-7 flex flex-col gap-5 border border-gray border-opacity-20 rounded-2xl',
+        'relative h-full p-5 lg:p-7 flex flex-col space-y-5 space-y-reverse border border-gray border-opacity-20 rounded-2xl',
         className
       )}
     >
@@ -34,7 +34,7 @@ export default function Job (props) {
           <MDXRenderer>{job.description2.childMdx.body}</MDXRenderer>
         </p>
       </section>
-      <div className="mt-auto pt-1 lg:pt-3 flex justify-between items-center gap-4">
+      <div className="!mt-auto !mb-0 pt-1 lg:pt-3 flex justify-between items-center space-x-4">
         <a href={job.applyUrl} target="_blank" className="button button-sm">
           Apply
         </a>

@@ -36,7 +36,7 @@ export default function Header(props) {
 
           <button
             type="button"
-            className="absolute top-2 md:top-4 lg:top-6 right-3 md:right-[70px] z-50 flex items-center gap-4 text-black hover:text-gray-900 pointer-events-auto scale-75 md:scale-100"
+            className="absolute top-2 md:top-4 lg:top-6 right-3 md:right-[70px] z-50 flex items-center space-x-4 text-black hover:text-gray-900 pointer-events-auto scale-75 md:scale-100"
             onClick={toggleMenu}
           >
             <span
@@ -86,13 +86,13 @@ export default function Header(props) {
               !isMenuOpen && 'invisible'
             )}
           >
-            <div className="flex-grow flex flex-col lg:flex-row justify-center gap-16 lg:gap-4">
-              <nav className="lg:flex-grow lg:ml-[20%] flex flex-col justify-center items-center md:items-start gap-6 md:gap-0">
+            <div className="flex-grow flex flex-col lg:flex-row justify-center space-y-16 lg:space-y-0 lg:space-x-4">
+              <nav className="lg:flex-grow lg:ml-[20%] flex flex-col justify-center items-center md:items-start space-y-6 md:space-y-0">
                 {data.primaryNav.links.map((link, index) => (
                   <Link
                     key={link.url}
                     to={link.url}
-                    className="relative flex items-center gap-5"
+                    className="relative flex items-center space-x-5"
                   >
                     <span
                       className="absolute md:static top-1.5 -left-1.5 md:text-stroke-white text-xs md:text-4xl font-light md:font-black"
@@ -125,12 +125,12 @@ export default function Header(props) {
               </div>
             </div>
 
-            <div className="self-center flex flex-wrap justify-between gap-x-16 lg:gap-x-32 text-white/40 pb-2">
+            <div className="self-center flex flex-wrap justify-between space-x-16 lg:space-x-32 text-white/40 pb-2">
               {data.secondaryNavs.map((nav) => (
-                <Nav key={nav.id} links={nav.links} className="gap-8" />
+                <Nav key={nav.id} links={nav.links} className="space-x-8" />
               ))}
 
-              <SocialNav links={data.socialNav.links} className="gap-8" />
+              <SocialNav links={data.socialNav.links} className="space-x-8" />
             </div>
           </div>
         </div>

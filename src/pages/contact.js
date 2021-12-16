@@ -28,8 +28,8 @@ export default function PartnersPage(props) {
             />
           </div>
 
-          <div className="container lg:max-w-6xl flex flex-col lg:flex-row lg:justify-between items-center lg:items-start gap-7 md:gap-11">
-            <header className="flex flex-col gap-3 md:gap-5 max-w-[280px] md:max-w-lg lg:max-w-sm text-center lg:text-left">
+          <div className="container lg:max-w-6xl flex flex-col lg:flex-row lg:justify-between items-center lg:items-start space-y-7 lg:space-y-0 lg:space-x-11">
+            <header className="flex flex-col space-y-3 md:space-y-5 max-w-[280px] md:max-w-lg lg:max-w-sm text-center lg:text-left">
               <h1 className="text-heading2 font-black uppercase">
                 <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
               </h1>
@@ -39,7 +39,7 @@ export default function PartnersPage(props) {
               </p>
             </header>
 
-            <form className="w-full flex flex-col gap-2.5 max-w-xl lg:max-w-lg">
+            <form className="w-full flex flex-col space-y-2.5 max-w-xl lg:max-w-lg">
               <label>
                 <span className="sr-only">Your Name</span>
                 <input
@@ -77,7 +77,7 @@ export default function PartnersPage(props) {
 
         <section className="relative z-10 container pt-12 md:pt-14 lg:pt-28 pb-28 lg:pb-48">
           <h2 className="sr-only">Contact Methods</h2>
-          <ul className="flex flex-col md:flex-row items-center md:items-stretch md:justify-center md:gap-14 lg:gap-24">
+          <ul className="flex flex-col md:flex-row items-center md:items-stretch md:justify-center md:space-x-14 lg:space-x-24">
             {methodsData.contactMethods.map((method) => (
               <li className="mb-[-2px]">
                 <figure className="relative w-[170px] md:w-48 lg:w-72 md:h-full pt-3 lg:pt-4 pb-8 lg:pb-11 corners flex flex-col items-center text-center hover:bg-teal/20">
