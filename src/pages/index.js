@@ -16,6 +16,7 @@ import featureHexFrame from '@/images/feature-hex-frame.svg'
 import featureHexFrameSm from '@/images/feature-hex-frame-small.svg'
 import featureGlow from '@/images/feature-glow.svg'
 import featureGlowSm from '@/images/feature-glow-small.svg'
+import ContentfulImage from '@/components/contentful-image'
 
 export default function IndexPage(props) {
   const { data, path } = props
@@ -146,19 +147,10 @@ export default function IndexPage(props) {
                       aria-hidden="true"
                     />
                     <div className="both-span-full z-10 flex justify-center">
-                      {feature.image.gatsbyImageData ? (
-                        <GatsbyImage
-                          src={feature.image.gatsbyImageData}
-                          alt={feature.image.description}
-                          // TODO: confirm this works
-                        />
-                      ) : (
-                        <img
-                          src={feature.image.file.url}
-                          alt={feature.image.description}
-                          className="w-1/2 md:w-3/5"
-                        />
-                      )}
+                      <ContentfulImage
+                        image={feature.image}
+                        className="w-1/2 md:w-3/5"
+                      />
                     </div>
                   </div>
                   <figcaption className="max-w-xs lg:max-w-md text-center md:text-left">
@@ -224,7 +216,7 @@ export const query = graphql`
           file {
             url
           }
-          gatsbyImageData(quality: 100)
+          gatsbyImageData(width: 277, quality: 100)
         }
         description {
           description

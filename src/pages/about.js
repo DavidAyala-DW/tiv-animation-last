@@ -163,7 +163,7 @@ export const query = graphql`
         title
         url
         icon {
-          gatsbyImageData(quality: 100)
+          gatsbyImageData(width: 28, quality: 100)
           file {
             url
           }
