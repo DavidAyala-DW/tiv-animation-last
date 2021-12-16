@@ -49,29 +49,29 @@ export default function IndexPage(props) {
             role="img"
             aria-label="Three orange, black, and white Tiv debit cards shooting toward a target made of concentric hexes"
           >
-            <div className="relative container h-full xl:max-w-[1440px] flex justify-center">
+            <div className="relative container h-full xl:max-w-[1440px]">
               <StaticImage
                 src="../images/tiv-card-from-top.png"
                 width={700}
-                className="absolute -top-14 md:-top-48 xl:-top-96 -left-24 md:left-auto md:right-24 xl:right-48 w-[330px] md:w-[470px] xl:w-auto"
+                className="!absolute -top-14 md:-top-48 xl:-top-96 -left-24 md:left-auto md:right-24 xl:right-48 w-[330px] md:w-[470px] xl:w-auto"
                 loading="eager"
-                placeholder="tracedSVG"
+                placeholder="none"
                 aria-hidden="true"
               />
               <StaticImage
                 src="../images/tiv-card-from-left.png"
                 width={720}
-                className="absolute lg:top-64 bottom-48 md:bottom-36 lg:bottom-auto -left-40 md:-left-40 xl:-left-64 w-[400px] md:w-[480px] xl:w-auto"
+                className="!absolute lg:top-64 bottom-48 md:bottom-36 lg:bottom-auto -left-40 md:-left-40 xl:-left-64 w-[400px] md:w-[480px] xl:w-auto"
                 loading="eager"
-                placeholder="tracedSVG"
+                placeholder="none"
                 aria-hidden="true"
               />
               <StaticImage
                 src="../images/tiv-card-from-right.png"
                 width={680}
-                className="absolute bottom-64 md:bottom-48 xl:bottom-24 -right-24 md:-right-32 xl:-right-20 w-[350px] md:w-[450px] xl:w-auto"
+                className="!absolute bottom-64 md:bottom-48 xl:bottom-24 -right-24 md:-right-32 xl:-right-20 w-[350px] md:w-[450px] xl:w-auto"
                 loading="eager"
-                placeholder="tracedSVG"
+                placeholder="none"
                 aria-hidden="true"
               />
             </div>
@@ -167,7 +167,7 @@ export default function IndexPage(props) {
           </ul>
         </section>
 
-        <section className="overflow-hidden pt-36 pb-64">
+        <section className="overflow-hidden pt-36 pb-10 md:pb-48 lg:pb-64">
           <div className="container md:max-w-3xl lg:max-w-4xl">
             <header className="relative z-10 mb-16 lg:mb-24 text-center">
               <h2 className="mb-2 text-heading2 font-bold uppercase cms-strong-orange">
