@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import _trim from 'lodash/trim'
 import { Link } from 'gatsby'
 import { useState } from 'react'
 import { Divide as Burger } from 'hamburger-react'
@@ -10,6 +11,10 @@ import WaitlistButton from '@/components/waitlist-button'
 import tivLogo from '@/images/tiv-logo.svg'
 import menuBg from '@/images/menu-bg.svg'
 import { FocusOn } from 'react-focus-on'
+
+function arePathsEqual(path1, path2) {
+  return _trim(path1, '/') === _trim(path2, '/')
+}
 
 export default function Header(props) {
   const { data, currentPath } = props
@@ -98,7 +103,7 @@ export default function Header(props) {
                     <span
                       className={classNames(
                         'px-3 pb-2 md:pb-4 text-5xl md:text-8xl font-black md:font-medium leading-none hover:text-stroke-orange',
-                        link.url === currentPath && 'corners'
+                        arePathsEqual(link.url, currentPath) && 'corners'
                       )}
                     >
                       {link.label}
