@@ -4,7 +4,7 @@ import Dot from '@/components/svg/dot.svg'
 import FormBgBlur from '@/components/svg/wide-button-bg-blur.svg'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import { StaticImage } from 'gatsby-plugin-image'
 import { CarouselProvider } from 'pure-react-carousel'
 import DemoCarousel from '@/components/demo-carousel'
 import WaitlistButton from '@/components/waitlist-button'
@@ -27,11 +27,11 @@ export default function IndexPage(props) {
   return (
     <Layout currentPath={path}>
       <Helmet>
-        <title>Home Page</title>
+        <title>Tiv</title>
       </Helmet>
 
       <main>
-        <section className="grid pt-12 md:pt-0 pb-20 md:pb-24 lg:pb-0">
+        <section className="grid overflow-hidden pt-12 md:pt-0 pb-20 md:pb-24 lg:pb-0">
           <div
             className="both-span-full flex justify-center w-full overflow-hidden pointer-events-none"
             aria-hidden="true"
@@ -101,7 +101,7 @@ export default function IndexPage(props) {
                 </WaitlistButton>
               </div>
               <FormBgBlur
-                className="absolute -bottom-48 left-0 right-0 z-[-1] mx-auto"
+                className="absolute -bottom-48 left-1/2 z-[-1] -translate-x-1/2"
                 aria-hidden="true"
               />
             </div>
@@ -167,25 +167,27 @@ export default function IndexPage(props) {
           </ul>
         </section>
 
-        <section className="container md:max-w-3xl lg:max-w-4xl pt-36 pb-64">
-          <header className="relative z-10 mb-16 lg:mb-24 text-center">
-            <h2 className="mb-2 text-heading2 font-bold uppercase cms-strong-orange">
-              <MDXRenderer>{carouselData.title.childMdx.body}</MDXRenderer>
-            </h2>
-            <p className="text-heading5">{carouselData.subtitle}</p>
-          </header>
+        <section className="overflow-hidden pt-36 pb-64">
+          <div className="container md:max-w-3xl lg:max-w-4xl">
+            <header className="relative z-10 mb-16 lg:mb-24 text-center">
+              <h2 className="mb-2 text-heading2 font-bold uppercase cms-strong-orange">
+                <MDXRenderer>{carouselData.title.childMdx.body}</MDXRenderer>
+              </h2>
+              <p className="text-heading5">{carouselData.subtitle}</p>
+            </header>
 
-          <CarouselProvider
-            naturalSlideWidth={258}
-            naturalSlideHeight={558}
-            totalSlides={carouselData.slides.length}
-            infinite
-            isIntrinsicHeight
-            touchEnabled={false}
-            dragEnabled={false}
-          >
-            <DemoCarousel slidesData={carouselData.slides} />
-          </CarouselProvider>
+            <CarouselProvider
+              naturalSlideWidth={258}
+              naturalSlideHeight={558}
+              totalSlides={carouselData.slides.length}
+              infinite
+              isIntrinsicHeight
+              touchEnabled={false}
+              dragEnabled={false}
+            >
+              <DemoCarousel slidesData={carouselData.slides} />
+            </CarouselProvider>
+          </div>
         </section>
       </main>
     </Layout>
