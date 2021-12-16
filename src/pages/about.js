@@ -84,7 +84,7 @@ export default function AboutPage(props) {
           </ul>
         </section>
 
-        <section className="lg:container flex flex-col sm:flex-row justify-between items-center sm:items-start lg:max-w-5xl xl:max-w-none py-12">
+        <section className="lg:container flex flex-col sm:flex-row justify-between items-center sm:items-start lg:max-w-5xl xl:max-w-[1330px] mx-auto py-12 overflow-hidden">
           <header className="sm:min-w-[240px] max-w-[250px] md:max-w-xs sm:mt-32 ml-8 lg:ml-0 mb-12 sm:mb-0 pr-8 lg:pr-0 text-center sm:text-left">
             <h2>
               <span className="block mb-2 text-heading5">

@@ -5,7 +5,7 @@ import {
   Slide,
   Slider,
   ButtonBack,
-  ButtonNext
+  ButtonNext,
 } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 import Article from '@/components/article'
@@ -13,14 +13,14 @@ import Article from '@/components/article'
 import ChevronLeft from '@/components/svg/chevron-left.svg'
 import ChevronRight from '@/components/svg/chevron-right.svg'
 
-export default function PressCarousel (props) {
+export default function PressCarousel(props) {
   const { articles, className } = props
   const isXlUp = useMediaQuery({ query: '(min-width: 1280px)' })
   const isMdUp = useMediaQuery({ query: '(min-width: 768px)' })
   const slidesPerPage = isXlUp ? 3 : isMdUp ? 2 : 1
 
   return (
-    <div className={classNames('w-full lg:w-[584px] xl:w-[852px]', className)}>
+    <div className={classNames('w-full lg:w-[604px] xl:w-[906px]', className)}>
       <CarouselProvider
         naturalSlideWidth={282}
         naturalSlideHeight={500}
@@ -30,7 +30,7 @@ export default function PressCarousel (props) {
         visibleSlides={slidesPerPage}
         step={slidesPerPage}
       >
-        <Slider classNameTrayWrap="w-[306px] md:w-[584px] lg:w-auto mx-auto sm:mx-0">
+        <Slider classNameTrayWrap="w-[306px] md:w-[604px] lg:w-auto mx-auto sm:mx-0">
           {articles.map((article, index) => (
             <Slide key={article.id} index={index} className="">
               <Article
