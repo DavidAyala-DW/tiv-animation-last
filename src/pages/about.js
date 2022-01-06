@@ -99,7 +99,7 @@ export default function AboutPage(props) {
           <PressCarousel articles={pressData.articles} />
         </section>
 
-        <section className="md:container md:max-w-6xl pt-4 pb-20 lg:pb-36">
+        <section className="md:container md:max-w-5xl pt-4 pb-20 lg:pb-36">
           <h2 className="max-w-xs md:max-w-none mx-auto md:max-0 mb-8 lg:mb-16 px-5 md:px-0 text-heading2 text-center font-bold uppercase cms-strong-orange">
             <MDXRenderer>{jobsData.title.childMdx.body}</MDXRenderer>
           </h2>
@@ -178,13 +178,8 @@ export const query = graphql`
       jobs {
         id
         title
-        salary
+        subtitle
         description {
-          childMdx {
-            body
-          }
-        }
-        description2 {
           childMdx {
             body
           }

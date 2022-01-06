@@ -17,24 +17,12 @@ export default function Job(props) {
       />
       <h3 className="text-heading4">{job.title}</h3>
       <section>
-        <h4 className="mb-1 text-xs">Description</h4>
+        <h4 className="mb-1 text-xs">{job.subtitle}</h4>
         <p className="text-sm lg:text-base text-white/50">
           <MDXRenderer>{job.description.childMdx.body}</MDXRenderer>
         </p>
       </section>
-      <section>
-        <h4 className="mb-1 text-xs">Salary</h4>
-        <p className="text-orange text-xl lg:text-2xl">
-          <strong>{job.salary}</strong> / year
-        </p>
-      </section>
-      <section>
-        <h4 className="mb-1 text-xs">Description 2</h4>
-        <p className="text-xs text-white/50">
-          <MDXRenderer>{job.description2.childMdx.body}</MDXRenderer>
-        </p>
-      </section>
-      <div className="!mt-auto !mb-0 pt-1 lg:pt-3 flex justify-between items-center space-x-4">
+      <div className="!mt-auto !mb-0 pt-3 lg:pt-8 flex justify-between items-center space-x-4">
         <a href={job.applyUrl} target="_blank" className="button button-sm">
           Apply
         </a>
