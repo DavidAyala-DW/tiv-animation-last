@@ -57,12 +57,16 @@ const headerFooterQuery = graphql`
 `
 
 export default function Layout(props) {
-  const { currentPath, children } = props
+  const { currentPath, showTicker, children } = props
   const data = useStaticQuery(headerFooterQuery)
 
   return (
     <>
-      <Header data={data.contentfulMenu} currentPath={currentPath} />
+      <Header
+        data={data.contentfulMenu}
+        currentPath={currentPath}
+        showTicker={showTicker}
+      />
       <div className="min-h-screen">{children}</div>
       <Footer data={data.contentfulFooter} />
     </>

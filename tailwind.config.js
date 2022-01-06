@@ -31,6 +31,16 @@ module.exports = {
       dropShadow: {
         'current-sm': '0 0 7px',
       },
+      animation: {
+        ticker: 'ticker 10s linear infinite',
+      },
+      keyframes: {
+        ticker: {
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '95%': { opacity: 1 },
+          '100%': { transform: 'translate3d(-200%, 0, 0)', opacity: 0 },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')({ strategy: 'class' })],

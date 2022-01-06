@@ -3,21 +3,22 @@ import _trim from 'lodash/trim'
 import { Link } from 'gatsby'
 import { useState } from 'react'
 import { Divide as Burger } from 'hamburger-react'
+import { FocusOn } from 'react-focus-on'
+
 import MenuHex from '@/components/svg/menu-hex.svg'
 import Nav from '@/components/nav'
 import SocialNav from '@/components/social-nav'
 import WaitlistButton from '@/components/waitlist-button'
-
+import Ticker from '@/components/ticker'
 import tivLogo from '@/images/tiv-logo.svg'
 import menuBg from '@/images/menu-bg.svg'
-import { FocusOn } from 'react-focus-on'
 
 function arePathsEqual(path1, path2) {
   return _trim(path1, '/') === _trim(path2, '/')
 }
 
 export default function Header(props) {
-  const { data, currentPath } = props
+  const { data, currentPath, showTicker } = props
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   function toggleMenu() {
@@ -27,44 +28,59 @@ export default function Header(props) {
   return (
     <FocusOn enabled={isMenuOpen} onEscapeKey={toggleMenu}>
       <div role="presentation">
-        <header className="fixed top-0 z-50 inset-x-0 pointer-events-none flex items-center justify-between py-6">
-          <div className="container flex md:block justify-center">
-            <Link to="/" className="inline-flex pointer-events-auto">
-              <img src={tivLogo} alt="Tiv" className="h-11 md:h-10 lg:h-auto" />
-            </Link>
-          </div>
+        <header className="fixed top-0 z-50 inset-x-0 pointer-events-none">
+          {showTicker && (
+            <Ticker>
+              The first 10,000 members get a limited edition metal card.
+            </Ticker>
+          )}
 
-          <button
-            type="button"
-            className="absolute top-2 md:top-4 lg:top-6 right-3 md:right-[70px] z-50 flex items-center space-x-4 text-black hover:text-gray-900 pointer-events-auto scale-75 md:scale-100"
-            onClick={toggleMenu}
-          >
-            <span
-              className="text-[9px] font-bold uppercase text-white sr-only md:not-sr-only"
-              aria-live="polite"
-            >
-              {isMenuOpen ? 'Close' : 'Menu'}
-            </span>
-            <span
-              className="grid items-center justify-center"
-              aria-hidden="true"
-            >
-              <MenuHex
-                className={classNames(
-                  'both-span-full',
-                  isMenuOpen && 'drop-shadow-xl'
-                )}
-              />
-              <span className="both-span-full flex justify-center text-orange scale-75">
-                <Burger
-                  color="currentColor"
-                  distance="sm"
-                  toggled={isMenuOpen}
-                  tabIndex={-1}
+          <div className="flex items-center justify-between py-6">
+            <div className="container flex md:block justify-center">
+              <Link to="/" className="inline-flex pointer-events-auto">
+                <img
+                  src={tivLogo}
+                  alt="Tiv"
+                  className="h-11 md:h-10 lg:h-auto"
                 />
+              </Link>
+            </div>
+
+            <button
+              type="button"
+              className={classNames(
+                'absolute top-2 md:top-4 lg:top-6 right-3 md:right-[70px] z-50 flex items-center space-x-4 text-black hover:text-gray-900 pointer-events-auto scale-75 md:scale-100',
+                showTicker && 'pt-7'
+              )}
+              onClick={toggleMenu}
+            >
+              <span
+                className="text-[9px] font-bold uppercase text-white sr-only md:not-sr-only"
+                aria-live="polite"
+              >
+                {isMenuOpen ? 'Close' : 'Menu'}
               </span>
-            </span>
-          </button>
+              <span
+                className="grid items-center justify-center"
+                aria-hidden="true"
+              >
+                <MenuHex
+                  className={classNames(
+                    'both-span-full',
+                    isMenuOpen && 'drop-shadow-xl'
+                  )}
+                />
+                <span className="both-span-full flex justify-center text-orange scale-75">
+                  <Burger
+                    color="currentColor"
+                    distance="sm"
+                    toggled={isMenuOpen}
+                    tabIndex={-1}
+                  />
+                </span>
+              </span>
+            </button>
+          </div>
         </header>
 
         <div

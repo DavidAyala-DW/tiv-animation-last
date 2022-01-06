@@ -25,7 +25,7 @@ export default function IndexPage(props) {
   const carouselData = data.contentfulLandingCarousel
 
   return (
-    <Layout currentPath={path}>
+    <Layout currentPath={path} showTicker>
       <Helmet>
         <title>Tiv</title>
       </Helmet>

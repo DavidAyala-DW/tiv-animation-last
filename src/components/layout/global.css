@@ -88,6 +88,14 @@
     .no-corners {
       background-image: none;
     }
+
+    .animation-duration-20 {
+      animation-duration: 20s;
+    }
+
+    .animation-duration-30 {
+      animation-duration: 30s;
+    }
   }
 
   .both-span-full {
