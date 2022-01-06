@@ -47,18 +47,18 @@ export default function PartnersPage(props) {
           <img src={shootInvader} className="mt-10" aria-hidden="true" />
         </section>
 
-        <section className="container sm:w-max pb-16 md:pb-36">
+        <section className="container max-w-7xl pb-16 md:pb-36">
           <h2 className="sr-only">Partners</h2>
-          <ul className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-24 lg:gap-x-32 gap-y-12 md:gap-y-0">
+          <ul className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-24 lg:gap-x-32 md:gap-y-32">
             {partnersData.partners.map((partner) => (
-              <li key={partner.id} className="justify-self-center md:-mb-0.5">
+              <li key={partner.id} className="-mb-0.5 md:mb-0">
                 <Partner partner={partner} className="h-full" />
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="container md:max-w-4xl lg:max-w-[1200px] pb-16 md:pb-20 lg:pb-40">
+        <section className="container md:max-w-4xl lg:max-w-7xl pb-16 md:pb-20 lg:pb-40">
           <div className="relative z-0 flex flex-col items-center md:items-start py-12 md:pt-14 lg:pt-20 md:pb-16 lg:pb-24 px-6 md:px-16 border border-teal rounded-lg bg-[#161616] shadow-teal overflow-hidden text-center md:text-left">
             <h2 className="md:max-w-xl md:mb-5 text-[34px] md:text-[43px] lg:text-5xl uppercase font-bold cms-strong-teal">
               <MDXRenderer>{calloutData.title.childMdx.body}</MDXRenderer>
@@ -108,11 +108,7 @@ export const query = graphql`
             url
           }
         }
-        eyebrow
         name
-        description {
-          description
-        }
         id
       }
     }
