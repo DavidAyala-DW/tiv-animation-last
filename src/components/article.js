@@ -19,8 +19,10 @@ export default function Article(props) {
         className="mb-2 lg:mb-3 rounded-lg"
       />
       <div className="flex-grow flex flex-col p-3">
-        <div className="flex items-start justify-between space-x-4 mb-2 lg:mb-7">
-          <h3 className="text-heading4 leading-tight">{article.title}</h3>
+        <div className="flex items-start justify-between space-x-4 mb-2 lg:mb-3">
+          <h3 className="text-heading4 text-lg leading-tight">
+            {article.title}
+          </h3>
           {article.icon && (
             <ContentfulImage
               image={article.icon}
