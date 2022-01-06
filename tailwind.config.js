@@ -1,9 +1,8 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      display: ['"Exo 2"', 'sans-serif'],
+      sans: ['"Exo 2"', 'sans-serif'],
     },
 
     extend: {
