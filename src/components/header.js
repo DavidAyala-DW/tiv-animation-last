@@ -18,7 +18,7 @@ function arePathsEqual(path1, path2) {
 }
 
 export default function Header(props) {
-  const { data, currentPath, showTicker } = props
+  const { data, currentPath, ticker } = props
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   function toggleMenu() {
@@ -29,11 +29,7 @@ export default function Header(props) {
     <FocusOn enabled={isMenuOpen} onEscapeKey={toggleMenu}>
       <div role="presentation">
         <header className="fixed top-0 z-50 inset-x-0 pointer-events-none">
-          {showTicker && (
-            <Ticker>
-              The first 10,000 members get a limited edition metal card.
-            </Ticker>
-          )}
+          {ticker.showTicker && <Ticker>{ticker.text}</Ticker>}
 
           <div className="flex items-center justify-between py-6">
             <div className="container flex md:block justify-center">
@@ -50,7 +46,7 @@ export default function Header(props) {
               type="button"
               className={classNames(
                 'absolute top-2 md:top-4 lg:top-6 right-3 md:right-[70px] z-50 flex items-center space-x-4 text-black hover:text-gray-900 pointer-events-auto scale-75 md:scale-100',
-                showTicker && 'pt-7'
+                ticker.showTicker && 'pt-7'
               )}
               onClick={toggleMenu}
             >

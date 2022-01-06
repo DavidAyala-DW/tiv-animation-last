@@ -32,6 +32,11 @@ const headerFooterQuery = graphql`
       joinButtonLabel
     }
 
+    contentfulTicker {
+      showTicker
+      text
+    }
+
     contentfulFooter {
       primaryNav {
         links {
@@ -65,7 +70,7 @@ export default function Layout(props) {
       <Header
         data={data.contentfulMenu}
         currentPath={currentPath}
-        showTicker={showTicker}
+        ticker={data.contentfulTicker}
       />
       <div className="min-h-screen">{children}</div>
       <Footer data={data.contentfulFooter} />
