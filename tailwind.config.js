@@ -36,9 +36,9 @@ module.exports = {
       },
       keyframes: {
         ticker: {
-          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '0%': { transform: 'translate3d(100%, 0, 0)' },
           '95%': { opacity: 1 },
-          '100%': { transform: 'translate3d(-200%, 0, 0)', opacity: 0 },
+          '100%': { transform: 'translate3d(-100%, 0, 0)', opacity: 0 },
         },
       },
     },
