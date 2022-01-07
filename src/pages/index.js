@@ -64,6 +64,7 @@ export default function IndexPage(props) {
                 className="!absolute -top-14 md:-top-48 xl:top-[-360px] -left-24 md:left-auto md:right-24 xl:right-36 w-[330px] md:w-[470px] xl:w-auto"
                 loading="eager"
                 placeholder="none"
+                alt=""
                 aria-hidden="true"
               />
               <StaticImage
@@ -72,6 +73,7 @@ export default function IndexPage(props) {
                 className="!absolute -bottom-24 md:bottom-0 lg:bottom-4 -left-40 md:-left-40 xl:-left-64 w-[400px] md:w-[480px] xl:w-auto"
                 loading="eager"
                 placeholder="none"
+                alt=""
                 aria-hidden="true"
               />
               <StaticImage
@@ -80,6 +82,7 @@ export default function IndexPage(props) {
                 className="!absolute -bottom-20 md:bottom-6 xl:-bottom-10 -right-24 md:-right-32 xl:-right-36 w-[350px] md:w-[450px] xl:w-auto"
                 loading="eager"
                 placeholder="none"
+                alt=""
                 aria-hidden="true"
               />
             </div>
