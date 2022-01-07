@@ -19,12 +19,12 @@ export default function ScrollTicker(props) {
     <div
       ref={ref}
       className={classNames(
-        'overflow-hidden bg-orange font-medium text-5xl md:text-6xl lg:text-[120px] lg:text-stroke-white lg:text-stroke-2 lg:!text-orange uppercase leading-[1.2] whitespace-nowrap',
+        'overflow-hidden bg-orange font-medium text-5xl md:text-6xl lg:text-[120px] text-stroke-white text-stroke-2 !text-orange uppercase leading-[1.2] whitespace-nowrap',
         className
       )}
     >
       <div
-        className="h-[1.3em] pb-[0.15em] pl-[1.2em] flex space-x-[1.2em] items-center will-change-transform motion-reduce:!transform-none"
+        className="h-[2.3em] lg:h-[1.3em] pb-[0.15em] pl-[1.2em] flex space-x-[1.2em] items-center will-change-transform motion-reduce:!transform-none"
         style={{ transform: `translate3d(${offsetX}%, 0, 0)` }}
       >
         <span>{children}</span>

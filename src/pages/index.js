@@ -202,7 +202,7 @@ export default function IndexPage(props) {
             </span>
           </ScrollTicker>
 
-          <div className="container lg:max-w-6xl lg:flex lg:flex-row-reverse lg:items-center lg:space-x-10 lg:space-x-reverse pt-24 pb-28 text-center lg:text-left">
+          <div className="container lg:max-w-6xl lg:flex lg:flex-row-reverse lg:items-center lg:space-x-10 lg:space-x-reverse pt-16 lg:pt-24 pb-28 text-center lg:text-left">
             <div className="lg:basis-full max-w-[500px] mx-auto relative z-[-1] mb-2 lg:mb-10">
               <ContentfulImage
                 image={metalCardData.image}

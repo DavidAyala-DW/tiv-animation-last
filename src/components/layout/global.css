@@ -106,7 +106,12 @@
     text-shadow: var(--stroke-width) 0 0 var(--stroke-color),
       calc(var(--stroke-width) * -1) 0 0 var(--stroke-color),
       0 var(--stroke-width) 0 var(--stroke-color),
-      0 calc(var(--stroke-width) * -1) 0 var(--stroke-color);
+      0 calc(var(--stroke-width) * -1) 0 var(--stroke-color),
+      var(--stroke-width) var(--stroke-width) 0 var(--stroke-color),
+      calc(var(--stroke-width) * -1) var(--stroke-width) 0 var(--stroke-color),
+      var(--stroke-width) calc(var(--stroke-width) * -1) 0 var(--stroke-color),
+      calc(var(--stroke-width) * -1) calc(var(--stroke-width) * -1) 0
+        var(--stroke-color);
   }
 
   .text-stroke-white {
