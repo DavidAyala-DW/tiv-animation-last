@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import {
   Slide,
   Slider,
@@ -39,7 +39,12 @@ export default function DemoCarousel(props) {
           aria-hidden="true"
         >
           <div className="both-span-full justify-self-center overflow-hidden">
-            <img src={demoCarouselBg} className="max-w-none" loading="lazy" />
+            <img
+              src={demoCarouselBg}
+              className="max-w-none"
+              alt=""
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -68,6 +73,8 @@ export default function DemoCarousel(props) {
             src={phoneFrame}
             className="both-span-full z-10 pointer-events-none"
             loading="lazy"
+            alt=""
+            aria-hidden="true"
           />
         </div>
       </div>

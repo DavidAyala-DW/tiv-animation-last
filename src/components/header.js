@@ -92,6 +92,7 @@ export default function Header(props) {
           <img
             src={menuBg}
             className="absolute top-0 right-0"
+            alt=""
             aria-hidden="true"
           />
           <div

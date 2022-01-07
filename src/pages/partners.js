@@ -25,14 +25,17 @@ export default function PartnersPage(props) {
           <div className="flex md:translate-y-[-15px]" aria-hidden="true">
             <img
               src={invader}
+              alt=""
               className="translate-x-[-75px] lg:translate-x-[-270px] translate-y-[-40px] lg:translate-y-[-15px]"
             />
             <img
               src={invader}
+              alt=""
               className="translate-x-[100px] lg:translate-x-0 translate-y-[-70px] lg:translate-y-[-100px]"
             />
             <img
               src={invader}
+              alt=""
               className="hidden lg:inline translate-x-[260px] translate-y-[60px] "
             />
           </div>
@@ -44,7 +47,7 @@ export default function PartnersPage(props) {
             {heroData.description.description}
           </p>
 
-          <img src={shootInvader} className="mt-10" aria-hidden="true" />
+          <img src={shootInvader} alt="" className="mt-10" aria-hidden="true" />
         </section>
 
         <section className="container max-w-7xl pb-16 md:pb-36">
@@ -70,6 +73,7 @@ export default function PartnersPage(props) {
               <a
                 href={calloutData.buttonUrl}
                 target="_blank"
+                rel="noreferrer"
                 className="inline-flex button button-teal button-lg mt-8 md:mt-9 mx-auto"
               >
                 {calloutData.buttonLabel}

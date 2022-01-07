@@ -39,12 +39,17 @@ export default function IndexPage(props) {
             className="both-span-full flex justify-center w-full overflow-hidden pointer-events-none"
             aria-hidden="true"
           >
-            <img src={heroHexesSm} className="max-w-none md:hidden" />
+            <img src={heroHexesSm} alt="" className="max-w-none md:hidden" />
             <img
               src={heroHexesMd}
+              alt=""
               className="max-w-none hidden md:inline lg:hidden"
             />
-            <img src={heroHexesLg} className="max-w-none hidden lg:inline" />
+            <img
+              src={heroHexesLg}
+              alt=""
+              className="max-w-none hidden lg:inline"
+            />
           </div>
 
           <div
@@ -132,21 +137,25 @@ export default function IndexPage(props) {
                     <img
                       className="absolute hidden md:inline"
                       src={featureGlow}
+                      alt=""
                       aria-hidden="true"
                     />
                     <img
                       className="absolute md:hidden"
                       src={featureGlowSm}
+                      alt=""
                       aria-hidden="true"
                     />
                     <img
                       src={featureHexFrame}
                       className="both-span-full hidden md:inline"
+                      alt=""
                       aria-hidden="true"
                     />
                     <img
                       src={featureHexFrameSm}
                       className="both-span-full mx-auto md:hidden"
+                      alt=""
                       aria-hidden="true"
                     />
                     <div className="both-span-full z-10 flex justify-center">

@@ -24,6 +24,7 @@ export default function PartnersPage(props) {
             <img
               src={heroBg}
               className="max-w-none scale-[65%] md:scale-75 lg:scale-100 lg:translate-x-[14%]"
+              alt=""
               aria-hidden="true"
             />
           </div>
@@ -70,6 +71,7 @@ export default function PartnersPage(props) {
                       <a
                         href={method.url}
                         target="_blank"
+                        rel="noreferrer"
                         className="underline after:absolute after:inset-0"
                       >
                         {method.subtitle}

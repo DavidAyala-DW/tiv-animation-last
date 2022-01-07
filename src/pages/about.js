@@ -28,7 +28,11 @@ export default function AboutPage(props) {
             className="absolute top-0 inset-x-0 translate-y-[-30%] md:translate-y-[-22%] flex justify-center w-full overflow-hidden"
             aria-hidden="true"
           >
-            <img src={heroBg} className="max-w-none scale-[60%] md:scale-100" />
+            <img
+              src={heroBg}
+              alt=""
+              className="max-w-none scale-[60%] md:scale-100"
+            />
           </div>
 
           <div className="z-10 container w-full flex flex-col items-center justify-center space-y-7 md:min-h-[675px]">

@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import ContentfulImage from '@/components/contentful-image'
 
 export default function Article(props) {
   const { article, className } = props
@@ -29,6 +28,7 @@ export default function Article(props) {
           <a
             href={article.url}
             target="_blank"
+            rel="noreferrer"
             className="inline-block mt-auto text-orange sm:text-sm lg:text-base underline"
           >
             Read More

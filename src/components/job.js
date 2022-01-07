@@ -23,12 +23,18 @@ export default function Job(props) {
         </p>
       </section>
       <div className="!mt-auto !mb-0 pt-3 lg:pt-8 flex justify-between items-center space-x-4">
-        <a href={job.applyUrl} target="_blank" className="button button-sm">
+        <a
+          href={job.applyUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="button button-sm"
+        >
           Apply
         </a>
         <a
           href={job.learnMoreUrl}
           target="_blank"
+          rel="noreferrer"
           className="text-sm lg:text-base text-white/50 underline"
         >
           Learn More
