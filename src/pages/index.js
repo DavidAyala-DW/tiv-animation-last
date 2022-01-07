@@ -21,14 +21,14 @@ import metalCardBg from '@/images/metal-card-bg.svg'
 import ScrollTicker from '@/components/scroll-ticker'
 
 export default function IndexPage(props) {
-  const { data, path } = props
+  const { data, location } = props
   const heroData = data.contentfulLandingHero
   const featuresData = data.contentfulLandingFeatureList
   const carouselData = data.contentfulLandingCarousel
   const metalCardData = data.contentfulLandingMetalCard
 
   return (
-    <Layout currentPath={path} showTicker>
+    <Layout currentPath={location.pathname} showTicker>
       <Helmet>
         <title>Tiv</title>
       </Helmet>

@@ -10,14 +10,14 @@ import JobCarousel from '@/components/job-carousel'
 import heroBg from '@/images/about-hero-bg.svg'
 
 export default function AboutPage(props) {
-  const { data, path } = props
+  const { data, location } = props
   const heroData = data.contentfulAboutHero
   const teamData = data.contentfulAboutTeam
   const pressData = data.contentfulAboutPress
   const jobsData = data.contentfulAboutJobs
 
   return (
-    <Layout currentPath={path}>
+    <Layout currentPath={location.pathname}>
       <Helmet>
         <title>About — Tiv</title>
       </Helmet>

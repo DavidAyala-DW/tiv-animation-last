@@ -8,12 +8,12 @@ import HexCircleFrame from '@/components/svg/hex-circle-frame.svg'
 import heroBg from '@/images/contact-hero-bg.svg'
 
 export default function PartnersPage(props) {
-  const { data, path } = props
+  const { data, location } = props
   const heroData = data.contentfulContactHero
   const methodsData = data.contentfulContactMethods
 
   return (
-    <Layout currentPath={path}>
+    <Layout currentPath={location.pathname}>
       <Helmet>
         <title>Contact — Tiv</title>
       </Helmet>

@@ -9,13 +9,13 @@ import shootInvader from '@/images/shoot-invader.svg'
 import presentInHexes from '@/images/present-in-hexes.svg'
 
 export default function PartnersPage(props) {
-  const { data, path } = props
+  const { data, location } = props
   const heroData = data.contentfulPartnersHero
   const partnersData = data.contentfulPartnersPartnerList
   const calloutData = data.contentfulPartnersCallout
 
   return (
-    <Layout currentPath={path}>
+    <Layout currentPath={location.pathname}>
       <Helmet>
         <title>Partners — Tiv</title>
       </Helmet>
