@@ -29,7 +29,9 @@ export default function Header(props) {
     <FocusOn enabled={isMenuOpen} onEscapeKey={toggleMenu}>
       <div role="presentation">
         <header className="fixed top-0 z-50 inset-x-0 pointer-events-none">
-          {ticker.showTicker && <Ticker>{ticker.text}</Ticker>}
+          {ticker.showTicker && currentPath === '/' && (
+            <Ticker>{ticker.text}</Ticker>
+          )}
 
           <div className="flex items-center justify-between py-6">
             <div className="container flex md:block justify-center">
