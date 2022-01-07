@@ -34,7 +34,7 @@ export default function IndexPage(props) {
       </Helmet>
 
       <main>
-        <section className="grid overflow-hidden pt-12 md:pt-0 pb-20 md:pb-24 lg:pb-0">
+        <section className="relative grid overflow-hidden pt-12 md:pt-6 pb-20 md:pb-24 lg:pb-0">
           <div
             className="both-span-full flex justify-center w-full overflow-hidden pointer-events-none"
             aria-hidden="true"
@@ -55,24 +55,24 @@ export default function IndexPage(props) {
             <div className="relative container h-full xl:max-w-[1440px]">
               <StaticImage
                 src="../images/tiv-card-from-top.png"
-                width={700}
-                className="!absolute -top-14 md:-top-48 xl:-top-96 -left-24 md:left-auto md:right-24 xl:right-48 w-[330px] md:w-[470px] xl:w-auto"
+                width={740}
+                className="!absolute -top-14 md:-top-48 xl:top-[-360px] -left-24 md:left-auto md:right-24 xl:right-36 w-[330px] md:w-[470px] xl:w-auto"
                 loading="eager"
                 placeholder="none"
                 aria-hidden="true"
               />
               <StaticImage
                 src="../images/tiv-card-from-left.png"
-                width={720}
-                className="!absolute lg:top-64 bottom-48 md:bottom-36 lg:bottom-auto -left-40 md:-left-40 xl:-left-64 w-[400px] md:w-[480px] xl:w-auto"
+                width={760}
+                className="!absolute -bottom-24 md:bottom-0 lg:bottom-4 -left-40 md:-left-40 xl:-left-64 w-[400px] md:w-[480px] xl:w-auto"
                 loading="eager"
                 placeholder="none"
                 aria-hidden="true"
               />
               <StaticImage
                 src="../images/tiv-card-from-right.png"
-                width={680}
-                className="!absolute bottom-64 md:bottom-48 xl:bottom-24 -right-24 md:-right-32 xl:-right-20 w-[350px] md:w-[450px] xl:w-auto"
+                width={760}
+                className="!absolute -bottom-20 md:bottom-6 xl:-bottom-10 -right-24 md:-right-32 xl:-right-36 w-[350px] md:w-[450px] xl:w-auto"
                 loading="eager"
                 placeholder="none"
                 aria-hidden="true"
