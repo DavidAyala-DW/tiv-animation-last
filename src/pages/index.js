@@ -17,12 +17,15 @@ import featureHexFrameSm from '@/images/feature-hex-frame-small.svg'
 import featureGlow from '@/images/feature-glow.svg'
 import featureGlowSm from '@/images/feature-glow-small.svg'
 import ContentfulImage from '@/components/contentful-image'
+import metalCardBg from '@/images/metal-card-bg.svg'
+import ScrollTicker from '@/components/scroll-ticker'
 
 export default function IndexPage(props) {
   const { data, path } = props
   const heroData = data.contentfulLandingHero
   const featuresData = data.contentfulLandingFeatureList
   const carouselData = data.contentfulLandingCarousel
+  const metalCardData = data.contentfulLandingMetalCard
 
   return (
     <Layout currentPath={path} showTicker>
@@ -86,7 +89,7 @@ export default function IndexPage(props) {
                 </p>
               )}
 
-              <h1 className="max-w-xl font-display-alt font-black text-heading1 lg:text-[56px] uppercase leading-none cms-strong-orange">
+              <h1 className="max-w-xl font-black text-heading1 lg:text-[56px] uppercase leading-none cms-strong-orange">
                 <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
               </h1>
             </div>
@@ -189,6 +192,41 @@ export default function IndexPage(props) {
             </CarouselProvider>
           </div>
         </section>
+
+        <section className="overflow-hidden mt-10 lg:mt-20">
+          <ScrollTicker>
+            <span className="inline-flex space-x-[1.2em]">
+              {metalCardData.tickerText.map((text) => (
+                <span key={text}>{text}</span>
+              ))}
+            </span>
+          </ScrollTicker>
+
+          <div className="container lg:max-w-6xl lg:flex lg:flex-row-reverse lg:items-center lg:space-x-10 lg:space-x-reverse pt-24 pb-28 text-center lg:text-left">
+            <div className="lg:basis-full max-w-[500px] mx-auto relative z-[-1] mb-2 lg:mb-10">
+              <ContentfulImage
+                image={metalCardData.image}
+                className="translate-x-[3%] translate-y-[7%]"
+              />
+              <img
+                src={metalCardBg}
+                alt=""
+                aria-hidden="true"
+                className="absolute z-[-1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[172%] max-w-none mask-from-b"
+              />
+            </div>
+            <header>
+              <h2 className="max-w-md lg:max-w-none mx-auto text-heading3 font-bold leading-tight lg:text-3xl xl:text-[33px] cms-strong-orange">
+                <MDXRenderer>{metalCardData.title.childMdx.body}</MDXRenderer>
+              </h2>
+              <div className="max-w-xs lg:max-w-sm mx-auto lg:mx-0 corners p-5 mt-8 lg:mt-12">
+                <WaitlistButton className="button button-outline lg:button-lg w-full py-3 lg:py-3 pb-3.5">
+                  {heroData.joinButtonLabel}
+                </WaitlistButton>
+              </div>
+            </header>
+          </div>
+        </section>
       </main>
     </Layout>
   )
@@ -255,6 +293,22 @@ export const query = graphql`
           }
           description
         }
+      }
+    }
+
+    contentfulLandingMetalCard {
+      title {
+        childMdx {
+          body
+        }
+      }
+      tickerText
+      image {
+        gatsbyImageData(width: 500, quality: 100)
+        file {
+          url
+        }
+        description
       }
     }
   }

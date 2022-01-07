@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply font-display text-white bg-gray-dark antialiased;
+    @apply font-sans text-white bg-gray-dark antialiased;
   }
 
   .text-heading1 {
@@ -73,29 +73,27 @@
     @apply mx-auto md:px-12 px-6;
   }
 
-  @variants responsive {
-    .corners {
-      background: left top no-repeat url('@/images/corner-tl.svg'),
-        right top no-repeat url('@/images/corner-tr.svg'),
-        left bottom no-repeat url('@/images/corner-bl.svg'),
-        right bottom no-repeat url('@/images/corner-br.svg');
-    }
+  .corners {
+    background: left top no-repeat url('@/images/corner-tl.svg'),
+      right top no-repeat url('@/images/corner-tr.svg'),
+      left bottom no-repeat url('@/images/corner-bl.svg'),
+      right bottom no-repeat url('@/images/corner-br.svg');
+  }
 
-    .corners-orange {
-      filter: hue-rotate(185deg) saturate(1.5);
-    }
+  .corners-orange {
+    filter: hue-rotate(185deg) saturate(1.5);
+  }
 
-    .no-corners {
-      background-image: none;
-    }
+  .no-corners {
+    background-image: none;
+  }
 
-    .animation-duration-20 {
-      animation-duration: 20s;
-    }
+  .animation-duration-20 {
+    animation-duration: 20s;
+  }
 
-    .animation-duration-30 {
-      animation-duration: 30s;
-    }
+  .animation-duration-30 {
+    animation-duration: 30s;
   }
 
   .both-span-full {
@@ -103,8 +101,8 @@
   }
 
   .text-stroke {
+    @apply text-gray-dark;
     --stroke-width: 1px;
-    color: theme('colors.gray.dark');
     text-shadow: var(--stroke-width) 0 0 var(--stroke-color),
       calc(var(--stroke-width) * -1) 0 0 var(--stroke-color),
       0 var(--stroke-width) 0 var(--stroke-color),
@@ -119,6 +117,10 @@
   .text-stroke-orange {
     @apply text-stroke;
     --stroke-color: theme('colors.orange');
+  }
+
+  .text-stroke-2 {
+    --stroke-width: 2px;
   }
 
   .cms-strong-orange strong {
@@ -141,6 +143,10 @@
 
   .shadow-teal {
     box-shadow: 0px 4px 64px rgba(0, 180, 180, 0.25);
+  }
+
+  .mask-from-b {
+    mask-image: linear-gradient(to top, transparent 12%, black 88%);
   }
 }
 

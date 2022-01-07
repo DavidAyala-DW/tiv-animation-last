@@ -62,7 +62,7 @@ const headerFooterQuery = graphql`
 `
 
 export default function Layout(props) {
-  const { currentPath, showTicker, children } = props
+  const { currentPath, children } = props
   const data = useStaticQuery(headerFooterQuery)
 
   return (
