@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { useState, useEffect, useRef } from 'react'
 import { useWindowScroll, useWindowSize } from 'react-use'
+import _times from 'lodash/times'
 
 export default function ScrollTicker(props) {
   const { children, className } = props
@@ -28,7 +29,11 @@ export default function ScrollTicker(props) {
         style={{ transform: `translate3d(${offsetX}%, 0, 0)` }}
       >
         <span>{children}</span>
-        {Array(2).fill(<span aria-hidden="true">{children}</span>)}
+        {_times(2, (index) => (
+          <span key={index} aria-hidden="true">
+            {children}
+          </span>
+        ))}
       </div>
     </div>
   )
