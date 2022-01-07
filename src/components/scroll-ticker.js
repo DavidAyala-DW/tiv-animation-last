@@ -19,7 +19,7 @@ export default function ScrollTicker(props) {
     <div
       ref={ref}
       className={classNames(
-        'overflow-hidden bg-orange font-medium text-4xl md:text-6xl lg:text-[120px] lg:text-stroke-white lg:text-stroke-2 lg:!text-orange uppercase leading-[1.2] whitespace-nowrap',
+        'overflow-hidden bg-orange font-medium text-5xl md:text-6xl lg:text-[120px] lg:text-stroke-white lg:text-stroke-2 lg:!text-orange uppercase leading-[1.2] whitespace-nowrap',
         className
       )}
     >
