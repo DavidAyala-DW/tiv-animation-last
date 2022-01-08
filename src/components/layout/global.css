@@ -153,6 +153,10 @@
   .mask-from-b {
     mask-image: linear-gradient(to top, transparent 12%, black 88%);
   }
+
+  .prose {
+    @apply prose-invert prose-strong:text-teal;
+  }
 }
 
 .carousel__slide-focus-ring {

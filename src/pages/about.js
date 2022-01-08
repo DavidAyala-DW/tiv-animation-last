@@ -39,7 +39,7 @@ export default function AboutPage(props) {
             <h1 className="max-w-xl font-black text-heading1 uppercase text-center leading-none cms-strong-orange">
               <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
             </h1>
-            <p className="max-w-4xl font-medium text-lg text-white/50 text-center prose prose-invert">
+            <p className="max-w-4xl font-medium text-lg text-white/50 text-center prose">
               <MDXRenderer>{heroData.description.childMdx.body}</MDXRenderer>
             </p>
           </div>
