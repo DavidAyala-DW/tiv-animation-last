@@ -101,8 +101,8 @@ export default function IndexPage(props) {
                 <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
               </h1>
             </div>
-            <p className="max-w-lg font-medium text-lg text-white text-center text-opacity-50">
-              {heroData.description.description}
+            <p className="max-w-lg font-medium text-lg text-white/50 text-center prose prose-invert">
+              <MDXRenderer>{heroData.description.childMdx.body}</MDXRenderer>
             </p>
 
             <div className="relative z-0 w-full flex flex-col items-center mt-6">
@@ -248,7 +248,9 @@ export const query = graphql`
   query LandingPageQuery {
     contentfulLandingHero {
       description {
-        description
+        childMdx {
+          body
+        }
       }
       title {
         childMdx {

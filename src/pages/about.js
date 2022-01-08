@@ -39,8 +39,8 @@ export default function AboutPage(props) {
             <h1 className="max-w-xl font-black text-heading1 uppercase text-center leading-none cms-strong-orange">
               <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
             </h1>
-            <p className="max-w-4xl font-medium text-lg text-white/50 text-center">
-              {heroData.description.description}
+            <p className="max-w-4xl font-medium text-lg text-white/50 text-center prose prose-invert">
+              <MDXRenderer>{heroData.description.childMdx.body}</MDXRenderer>
             </p>
           </div>
         </section>
@@ -127,7 +127,9 @@ export const query = graphql`
   query AboutPageQuery {
     contentfulAboutHero {
       description {
-        description
+        childMdx {
+          body
+        }
       }
       title {
         childMdx {

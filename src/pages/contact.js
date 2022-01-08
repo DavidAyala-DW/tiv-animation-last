@@ -37,8 +37,8 @@ export default function PartnersPage(props) {
               {heroData.subtitle && (
                 <p className="text-heading4 text-teal">{heroData.subtitle}</p>
               )}
-              <p className="text-lg text-white/50 leading-snug">
-                {heroData.description.description}
+              <p className="text-lg text-white/50 leading-snug prose prose-invert">
+                <MDXRenderer>{heroData.description.childMdx.body}</MDXRenderer>
               </p>
             </header>
           </div>
@@ -97,7 +97,9 @@ export const query = graphql`
         }
       }
       description {
-        description
+        childMdx {
+          body
+        }
       }
     }
     contentfulContactMethods {

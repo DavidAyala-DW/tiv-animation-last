@@ -43,8 +43,8 @@ export default function PartnersPage(props) {
           <h1 className="mb-5 lg:mb-9 font-black text-heading1 uppercase text-center leading-none cms-strong-teal">
             <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
           </h1>
-          <p className="max-w-xl md:text-lg text-white/50 text-center text-opacity-50">
-            {heroData.description.description}
+          <p className="max-w-xl text-base md:text-lg text-white/50 text-center prose prose-invert">
+            <MDXRenderer>{heroData.description.childMdx.body}</MDXRenderer>
           </p>
 
           <img src={shootInvader} alt="" className="mt-10" aria-hidden="true" />
@@ -100,7 +100,9 @@ export const query = graphql`
         }
       }
       description {
-        description
+        childMdx {
+          body
+        }
       }
     }
     contentfulPartnersPartnerList {
