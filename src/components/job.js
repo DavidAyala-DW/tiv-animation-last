@@ -31,14 +31,6 @@ export default function Job(props) {
         >
           Apply
         </a>
-        <a
-          href={job.learnMoreUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm lg:text-base text-white/50 underline"
-        >
-          Learn More
-        </a>
       </div>
     </article>
   )
