@@ -1,4 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
+import favicon from '../../images/favicon.ico'
+import Helmet from 'react-helmet'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 
@@ -67,6 +69,9 @@ export default function Layout(props) {
 
   return (
     <>
+      <Helmet>
+        <link rel="icon" href={favicon} />
+      </Helmet>
       <Header
         data={data.contentfulMenu}
         currentPath={currentPath}
