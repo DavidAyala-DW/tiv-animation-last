@@ -57,34 +57,47 @@ export default function AboutPage(props) {
             </h2>
           </header>
 
-          <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-items-center gap-x-[8%] sm:gap-x-20 lg:gap-x-32 gap-y-12 md:gap-y-14 lg:gap-y-16">
-            {teamData.teamMembers.map((teamMember) => (
-              <li
-                key={teamMember.id}
-                className="max-w-[199px] md:max-w-[203px] justify-self-center"
-              >
-                <figure>
-                  <div className="p-1 corners">
-                    <div className="p-[9%] border-2 border-gray border-opacity-20 rounded-full">
-                      <GatsbyImage
-                        image={teamMember.image.gatsbyImageData}
-                        alt={teamMember.image.description}
-                        imgClassName="rounded-full"
-                      />
+            {teamData.teamMembers.map((teamMember) => {
+              const ImageWrapperTag = teamMember.linkTo ? 'a' : 'div'
+              const imageWrapperProps = teamMember.linkTo
+                ? {
+                    href: teamMember.linkTo,
+                    target: '_blank',
+                    rel: 'noreferrer',
+                  }
+                : {}
+
+              return (
+                <li
+                  key={teamMember.id}
+                  className="max-w-[199px] md:max-w-[203px]"
+                >
+                  <figure>
+                    <div className="p-1 corners">
+                      <ImageWrapperTag
+                        {...imageWrapperProps}
+                        className="block p-[9%] border-2 border-gray border-opacity-20 rounded-full"
+                      >
+                        <GatsbyImage
+                          image={teamMember.image.gatsbyImageData}
+                          alt={teamMember.image.description}
+                          imgClassName="rounded-full"
+                        />
+                      </ImageWrapperTag>
                     </div>
-                  </div>
-                  <figcaption className="mt-9 text-center">
-                    <h3 className="mb-2 text-xs">{teamMember.name}</h3>
-                    <p className="uppercase leading-tight text-white/50">
-                      {teamMember.companyName}
-                    </p>
-                    <p className="mt-3 lg:mt-4 text-sm lg:text-base text-white/50">
-                      {teamMember.description.description}
-                    </p>
-                  </figcaption>
-                </figure>
-              </li>
-            ))}
+                    <figcaption className="mt-9 text-center">
+                      <h3 className="mb-2 text-xs">{teamMember.name}</h3>
+                      <p className="uppercase leading-tight text-white/50">
+                        {teamMember.companyName}
+                      </p>
+                      <p className="mt-3 lg:mt-4 text-sm lg:text-base text-white/50">
+                        {teamMember.description.description}
+                      </p>
+                    </figcaption>
+                  </figure>
+                </li>
+              )
+            })}
           </ul>
         </section>
 
@@ -151,6 +164,7 @@ export const query = graphql`
         description {
           description
         }
+        linkTo
       }
     }
     contentfulAboutPress {
