@@ -45,7 +45,7 @@ export default function AboutPage(props) {
           </div>
         </section>
 
-        <section className="relative z-10 container md:w-max pt-2 pb-16">
+        <section className="relative z-10 container pt-2 pb-16">
           <header className="mb-16 text-center">
             <h2>
               <span className="block mb-2 text-heading5">
@@ -57,6 +57,7 @@ export default function AboutPage(props) {
             </h2>
           </header>
 
+          <ul className="flex flex-wrap justify-center space-y-12 md:space-y-14 lg:space-y-16 !space-y-reverse">
             {teamData.teamMembers.map((teamMember) => {
               const ImageWrapperTag = teamMember.linkTo ? 'a' : 'div'
               const imageWrapperProps = teamMember.linkTo
@@ -70,7 +71,7 @@ export default function AboutPage(props) {
               return (
                 <li
                   key={teamMember.id}
-                  className="max-w-[199px] md:max-w-[203px]"
+                  className="max-w-[140px] sm:max-w-[170px] lg:max-w-[200px] mx-[3%] md:mx-6 xl:mx-16"
                 >
                   <figure>
                     <div className="p-1 corners">
