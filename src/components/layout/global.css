@@ -96,6 +96,14 @@
     animation-duration: 30s;
   }
 
+  .animation-duration-40 {
+    animation-duration: 40s;
+  }
+
+  .animation-duration-50 {
+    animation-duration: 50s;
+  }
+
   .both-span-full {
     @apply col-span-full row-span-full;
   }
