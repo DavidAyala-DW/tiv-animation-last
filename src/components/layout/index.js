@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, withPrefix } from 'gatsby'
 import favicon from '../../images/favicon.ico'
 import Helmet from 'react-helmet'
 import Header from '@/components/header'
@@ -71,6 +71,13 @@ export default function Layout(props) {
     <>
       <Helmet>
         <link rel="icon" href={favicon} />
+
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-CMS10WR867"
+        />
+        <script src={withPrefix('ga.js')} type="text/javascript" />
       </Helmet>
       <Header
         data={data.contentfulMenu}
