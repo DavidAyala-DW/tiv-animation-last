@@ -67,7 +67,7 @@ export default function AboutPage(props) {
                     rel: 'noreferrer',
                   }
                 : {}
-              console.log(teamMember.id)
+
               return (
                 <li
                   key={teamMember.id}
