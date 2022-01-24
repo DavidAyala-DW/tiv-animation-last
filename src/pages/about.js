@@ -67,7 +67,7 @@ export default function AboutPage(props) {
                     rel: 'noreferrer',
                   }
                 : {}
-
+              console.log(teamMember.id)
               return (
                 <li
                   key={teamMember.id}
@@ -156,6 +156,7 @@ export const query = graphql`
       title
       eyebrow
       teamMembers {
+        id
         image {
           description
           gatsbyImageData(height: 155, width: 155, quality: 100)
