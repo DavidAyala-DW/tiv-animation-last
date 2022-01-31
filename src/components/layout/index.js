@@ -59,6 +59,11 @@ const headerFooterQuery = graphql`
         }
       }
       legalText
+      tinyText {
+        childMdx {
+          body
+        }
+      }
     }
   }
 `

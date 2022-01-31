@@ -1,4 +1,6 @@
 import { Link } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+
 import Nav from '@/components/nav'
 import SocialNav from '@/components/social-nav'
 
@@ -31,13 +33,21 @@ export default function Footer(props) {
         </div>
       </section>
 
-      <section className="pt-4 pb-7 md:py-2 border-t border-gray-800/80">
-        <div className="container flex flex-col md:grid grid-cols-3 items-center space-y-4 md:space-y-0 md:gap-x-10">
-          <Nav
-            links={data.secondaryNav.links}
-            className="md:col-start-3 lg:col-start-2 lg:justify-self-center md:order-last space-x-6 md:space-x-12 text-[15px]"
-          />
-          <p className="text-[13px]">{data.legalText}</p>
+      <section className="pt-4 pb-10 md:py-2 border-t border-gray-800/80">
+        <div className="container text-center md:text-left">
+          <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 items-center space-y-4 md:space-y-0 md:gap-x-10">
+            <Nav
+              links={data.secondaryNav.links}
+              className="md:col-start-2 md:justify-self-end lg:justify-self-center md:order-last space-x-6 md:space-x-12 text-[15px]"
+            />
+            <p className="text-[13px]">{data.legalText}</p>
+          </div>
+
+          {data.tinyText && (
+            <div className="prose prose-sm max-w-[244px] md:max-w-sm mx-auto md:mx-0 mt-6 md:mt-8 mb-8 text-[10px] text-inherit leading-snug">
+              <MDXRenderer>{data.tinyText.childMdx.body}</MDXRenderer>
+            </div>
+          )}
         </div>
       </section>
     </footer>
