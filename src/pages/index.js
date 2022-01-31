@@ -101,9 +101,9 @@ export default function IndexPage(props) {
                 <MDXRenderer>{heroData.title.childMdx.body}</MDXRenderer>
               </h1>
             </div>
-            <p className="max-w-lg font-medium text-lg text-white/50 text-center prose">
+            <div className="max-w-lg font-medium text-lg text-white/50 text-center prose">
               <MDXRenderer>{heroData.description.childMdx.body}</MDXRenderer>
-            </p>
+            </div>
 
             <div className="relative z-0 w-full flex flex-col items-center mt-6">
               <div className="corners p-5">

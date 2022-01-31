@@ -18,9 +18,9 @@ export default function Job(props) {
       <h3 className="text-heading4">{job.title}</h3>
       <section>
         <h4 className="mb-1 text-xs">{job.subtitle}</h4>
-        <p className="text-sm lg:text-base text-white/50">
+        <div className="text-sm lg:text-base text-white/50">
           <MDXRenderer>{job.description.childMdx.body}</MDXRenderer>
-        </p>
+        </div>
       </section>
       <div className="!mt-auto !mb-0 pt-3 lg:pt-8 flex justify-between items-center space-x-4">
         <a

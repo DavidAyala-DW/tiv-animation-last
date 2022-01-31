@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { useMediaQuery } from 'react-responsive'
+import { useSsr } from 'usehooks-ts'
 import {
   CarouselProvider,
   Slide,
@@ -15,9 +16,19 @@ import ChevronRight from '@/components/svg/chevron-right.svg'
 
 export default function PressCarousel(props) {
   const { articles, className } = props
+  const { isServer } = useSsr()
   const isXlUp = useMediaQuery({ query: '(min-width: 1280px)' })
   const isMdUp = useMediaQuery({ query: '(min-width: 768px)' })
   const slidesPerPage = isXlUp ? 3 : isMdUp ? 2 : 1
+
+  /*
+    This component renders different content based on window size. This can
+    cause unexpected results when using SSG. As a quick fix we're skipping
+    static rendering.
+  */
+  if (isServer) {
+    return null
+  }
 
   return (
     <div className={classNames('w-full lg:w-[604px] xl:w-[906px]', className)}>

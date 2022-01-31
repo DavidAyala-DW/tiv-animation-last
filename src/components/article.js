@@ -21,9 +21,9 @@ export default function Article(props) {
         <h3 className="mb-2 lg:mb-3 text-heading4 text-lg leading-tight">
           {article.title}
         </h3>
-        <p className="mb-8 text-white/50 sm:text-sm lg:text-base">
+        <div className="mb-8 text-white/50 sm:text-sm lg:text-base">
           <MDXRenderer>{article.description.childMdx.body}</MDXRenderer>
-        </p>
+        </div>
         {article.url && (
           <a
             href={article.url}
