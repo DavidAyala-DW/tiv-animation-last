@@ -20,12 +20,59 @@ import ContentfulImage from '@/components/contentful-image'
 import metalCardBg from '@/images/metal-card-bg.svg'
 import ScrollTicker from '@/components/scroll-ticker'
 
+import { useEffect, useState } from 'react'
+import { window } from "browser-monads";
+
 export default function IndexPage(props) {
   const { data, location } = props
   const heroData = data.contentfulLandingHero
   const featuresData = data.contentfulLandingFeatureList
   const carouselData = data.contentfulLandingCarousel
   const metalCardData = data.contentfulLandingMetalCard
+
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  const [screenType,setScreenType] = useState("");
+  const [scrollY,setScrollY] = useState(0);
+
+  function getWindowDimensions() {
+
+    const { innerWidth: width, innerHeight: height } = window;
+
+    return {
+      width,
+      height,
+    };
+
+  }
+
+  useEffect(() => {
+
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+
+  }, []);
+
+  useEffect( () => {
+
+    const handleScroll = () => setScrollY(Number(window.scrollY)) ;
+
+    window.addEventListener("scroll", handleScroll);  
+    
+    return () => window.removeEventListener("scroll",handleScroll);
+
+  },[]);
+
+  useEffect(() => {
+
+    const handleScreenType = windowDimensions.width>=778 ? "desktop" : "mobile";
+    setScreenType(handleScreenType);
+    console.log(handleScreenType);
+
+  }, [windowDimensions]);
 
   return (
     <Layout currentPath={location.pathname} showTicker>
@@ -58,33 +105,57 @@ export default function IndexPage(props) {
             aria-label="Three orange, black, and white Tiv debit cards shooting toward a target made of concentric hexes"
           >
             <div className="relative container h-full xl:max-w-[1440px]">
-              <StaticImage
-                src="../images/tiv-card-from-top.png"
-                width={740}
-                className="!absolute -top-14 md:-top-48 xl:top-[-360px] -left-24 md:left-auto md:right-24 xl:right-36 w-[330px] md:w-[470px] xl:w-auto"
-                loading="eager"
-                placeholder="none"
-                alt=""
-                aria-hidden="true"
-              />
-              <StaticImage
-                src="../images/tiv-card-from-left.png"
-                width={760}
-                className="!absolute -bottom-24 md:bottom-0 lg:bottom-4 -left-40 md:-left-40 xl:-left-64 w-[400px] md:w-[480px] xl:w-auto"
-                loading="eager"
-                placeholder="none"
-                alt=""
-                aria-hidden="true"
-              />
-              <StaticImage
-                src="../images/tiv-card-from-right.png"
-                width={760}
-                className="!absolute -bottom-20 md:bottom-6 xl:-bottom-10 -right-24 md:-right-32 xl:-right-36 w-[350px] md:w-[450px] xl:w-auto"
-                loading="eager"
-                placeholder="none"
-                alt=""
-                aria-hidden="true"
-              />
+              <div
+                  className='!absolute -top-0 md:-top-32 xl:top-[-270px] -left-12 md:left-auto md:right-56 xl:right-80 transition-all duration-100 ease-linear'
+                  style={ {
+                    transform: `perspective(460px) translate3d(-${ 10*.004*( screenType === "desktop" ? scrollY : scrollY/2  )}px,${24*.004*(screenType === "desktop" ? scrollY : scrollY/2)}px,-${45*.004*(screenType === "desktop" ? scrollY : scrollY/2)}px)`,
+                    opacity: `${100-(screenType === "desktop" ? scrollY : scrollY*1.5)*.09}%`
+                  } }
+                >
+                  <StaticImage
+                    src="../images/tiv-card-from-top.png"
+                    width={460}
+                    className="w-[200px] md:w-[290px] xl:w-auto"
+                    loading="eager"
+                    placeholder="none"
+                    alt=""
+                    aria-hidden="true"
+                  />
+              </div>
+              <div
+                className='!absolute -bottom-8 md:bottom-[6rem] lg:bottom-[17rem] -left-24 md:-left-16 xl:-left-24 transition-all duration-100 ease-linear'
+                style={ {
+                  transform: `perspective(460px) translate3d(${ 32*.004*(screenType === "desktop" ? scrollY : scrollY/2 )}px,-${5*.004*(screenType === "desktop" ? scrollY : scrollY/2)}px,-${45*.004*(screenType === "desktop" ? scrollY : scrollY/2)}px)`,
+                  opacity: `${100-(screenType === "desktop" ? scrollY : scrollY*1.5)*.09}%`
+                } }
+              >
+                <StaticImage
+                  src="../images/tiv-card-from-left.png"
+                  width={460}
+                  className="w-[260px] md:w-[290px] xl:w-auto"
+                  loading="eager"
+                  placeholder="none"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+              <div
+                className='!absolute -bottom-[2rem] md:bottom-[7rem] xl:bottom-[8.5rem] -right-[3rem] md:-right-[2rem] xl:right-4 transition-all duration-100 ease-linear'
+                style={ {
+                  transform: `perspective(460px) translate3d(-${ 16*.004*(screenType === "desktop" ? scrollY : scrollY/2 )}px,-${7*.004*(screenType === "desktop" ? scrollY : scrollY/2)}px,-${45*.004*(screenType === "desktop" ? scrollY : scrollY/2)}px)`,
+                  opacity: `${100-(screenType === "desktop" ? scrollY : scrollY*1.5)*.09}%`
+                } }
+              >
+                <StaticImage
+                  src="../images/tiv-card-from-right.png"
+                  width={460}
+                  className="w-[240px] md:w-[280px] xl:w-auto"
+                  loading="eager"
+                  placeholder="none"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
             </div>
           </div>
 
@@ -216,10 +287,19 @@ export default function IndexPage(props) {
 
           <div className="container lg:max-w-6xl lg:flex lg:flex-row-reverse lg:items-center lg:space-x-10 lg:space-x-reverse pt-16 lg:pt-24 pb-28 text-center lg:text-left">
             <div className="lg:basis-full max-w-[500px] mx-auto relative z-[-1] mb-2 lg:mb-10">
-              <ContentfulImage
+              <StaticImage 
+                src="../images/main.png"
+                width={460}
+                className="translate-x-[3%] translate-y-[7%] z-0"
+                loading="eager"
+                placeholder="none"
+                alt=""
+                aria-hidden="true"
+              />
+              {/* <ContentfulImage
                 image={metalCardData.image}
                 className="translate-x-[3%] translate-y-[7%]"
-              />
+              /> */}
               <img
                 src={metalCardBg}
                 alt=""
